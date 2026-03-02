@@ -1,0 +1,105 @@
+---
+description: whoami 项目开发规范
+alwaysApply: true
+enabled: true
+updatedAt: 2026-03-02T12:00:00.000Z
+provider: 
+---
+
+# whoami 项目开发规范
+
+## 项目结构
+
+- `backend/` — FastAPI 后端（Python 3.12，uv 管理依赖）
+- `frontend/` — Nuxt 4 前端（Vue 3 + TypeScript + Tailwind CSS 4）
+- `skills/whoami/` — Agent Skill 脚本和文档
+
+## 通用规范
+
+- 所有代码文件使用 UTF-8 编码
+- 缩进：Python 4 空格，TypeScript/Vue 2 空格
+- 文件末尾保留一个空行
+- 不使用 `console.log` 或 `print` 做正式日志（调试除外）
+
+## 后端规范（Python / FastAPI）
+
+### 环境
+
+- Python 3.12，使用 uv 管理依赖
+- 依赖声明在 `backend/pyproject.toml`
+- 环境变量通过 `.env` 文件管理，不提交到 git
+
+### 代码风格
+
+- 遵循 PEP 8，行宽 120 字符
+- 使用 type hints 标注所有函数参数和返回值
+- 异步函数优先（async def），数据库操作全部异步
+- import 顺序：标准库 → 第三方库 → 本项目模块，组间空一行
+
+### 项目约定
+
+- 路由文件放 `app/routers/`，业务逻辑放 `app/services/`
+- 数据库模型放 `app/models/`，使用 SQLAlchemy 2.0 声明式映射
+- 依赖注入放 `app/deps.py`
+- 配置使用 pydantic-settings，读取 `.env` 文件
+- API 路径统一以 `/api/` 开头，RESTful 风格
+- 日志格式：`[whoami] {level} {message}`
+- API Key 明文不入库，仅存 SHA256 hash
+
+### 安全
+
+- OAuth state 参数防 CSRF
+- JWT HttpOnly cookie，7 天过期
+- COS STS 临时密钥限定 `profiles/{user_id}/*` 路径
+- CORS 仅允许 `whoamiagent.com`
+
+## 前端规范（Nuxt 4 / Vue 3 / TypeScript）
+
+### 代码风格
+
+- 使用 Composition API（`<script setup lang="ts">`）
+- 组件名使用 PascalCase，文件名与组件名一致
+- composables 以 `use` 开头（如 `useAuth.ts`）
+- Props 使用 TypeScript interface 定义类型
+
+### 项目约定
+
+- 页面放 `pages/`，组件放 `components/`，按功能分子目录
+- 全局布局放 `layouts/`
+- API 调用封装在 `composables/useApi.ts`
+- 多语言文件放 `locales/`（en.json、zh.json），默认语言 en
+- 路由守卫放 `middleware/`
+- 使用 Tailwind CSS 4，深色主题为主
+
+### 设计风格
+
+- 赛博朋克身份扫描美学 — 深色底 + 青蓝色光芒，呼应"数字身份识别"主题
+- 主色调：青蓝渐变（#0EA5E9 → #06B6D4 → #22D3EE），代表扫描、识别、连接
+- 对比强调色：琥珀 #F59E0B，用于关键操作和高亮
+- 背景色：#030712 / #0A0F1E / #111827（深墨色层次）
+- 文字色：#F0F9FF / #94A3B8 / #64748B（冷调文字）
+- 功能色：绿 #10B981 / 红 #F43F5E / 黄 #FBBF24 / 蓝 #38BDF8
+- 字体：显示字体 Space Mono（终端感），正文 Satoshi（现代几何）
+
+## Skill 脚本规范
+
+- `whoami_profile.py` 仅使用 Python 标准库（urllib.request），零第三方依赖
+- 配置文件路径：`~/.whoamiagent`（使用 `Path.home() / ".whoamiagent"` 跨平台兼容）
+- API Key 前缀：`wai_`
+- 远端 endpoint 默认：`https://whoamiagent.com`
+- 脚本兼容 python 3.8 的语法使用
+- 使用 英文 来编写 SKILL.md 和 references/*.md
+
+## COS 存储
+
+- 桶：`whoamiagent-1258395282`
+- 区域：`ap-hongkong`
+- Profile 路径：`profiles/{user_id}/current.md`
+- 历史路径：`profiles/{user_id}/history/{timestamp}.md`
+- 每用户最多保留 3 份历史 profile
+
+## Git 约定
+
+- `.env` 文件不提交，提供 `.env.example` 模板
+- `whoami.db` 不提交
+- `node_modules/`、`__pycache__/`、`.nuxt/` 不提交

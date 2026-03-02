@@ -1,0 +1,33 @@
+# Dependencies
+**/node_modules/
+**/.venv/
+
+# Build outputs
+**/.nuxt/
+**/.output/
+**/dist
+
+# Environment
+**/.env
+**/*.env.local
+
+# Database
+**/whoami*.db
+**/*.sqlite3
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/uv.lock
+
+# OS
+**/.DS_Store
+**/Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log

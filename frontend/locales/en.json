@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "logout": "Logout",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Let every AI",
+    "titleHighlight": "know who you are",
+    "subtitle": "One profile. Every AI agent. No more repeating yourself.",
+    "cta": "Get Your API Key for FREE"
+  },
+  "features": {
+    "title": "Why whoami?",
+    "crossSync": {
+      "title": "Cross-AI Sync",
+      "desc": "Your identity profile works across Claude, ChatGPT, Cursor, Kimi, and any AI that supports skills."
+    },
+    "privacy": {
+      "title": "Privacy First",
+      "desc": "Your data is stored securely. You control what AI agents can see. Revoke access anytime."
+    },
+    "devFriendly": {
+      "title": "Developer Friendly",
+      "desc": "One command to install. One API key to configure. Works with any AI agent skill system."
+    }
+  },
+  "install": {
+    "title": "Get Started in Seconds",
+    "step1Title": "Copy This Prompt",
+    "step1Desc": "Paste this to any AI agent and it will install and configure everything for you:",
+    "step2Title": "Or Install via Command",
+    "step2Desc": "If you're a developer, you can install the skill directly:",
+    "prompt": "Install a cross-AI agent user identity sync skill by running: npx skills add MorvanZhou/whoami. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.",
+    "copied": "Copied!"
+  },
+  "flow": {
+    "title": "How it works",
+    "step1": "Install Skill",
+    "step1Desc": "npx skills add",
+    "step2": "Get API Key",
+    "step2Desc": "Login & configure",
+    "step3": "AI Reads Profile",
+    "step3Desc": "Auto-injected context",
+    "step4": "Every AI Knows You",
+    "step4Desc": "Cross-AI identity sync"
+  },
+  "login": {
+    "title": "Sign in to whoami",
+    "subtitle": "Login to get your API key and manage your identity profile.",
+    "github": "Continue with GitHub",
+    "google": "Continue with Google",
+    "note": "Sign in to get your API key for free",
+    "aiContext": {
+      "badge": "This is opened by your AI Agent",
+      "title": "Your AI is using the whoami skill",
+      "desc": "Your AI agent needs to understand your personal info to complete the task at hand. Sign in here to get a secure personal profile space — so every AI can know the same you.",
+      "safe": "This is a safe, expected action. You can close this tab anytime."
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your identity profile and API keys for whoami.",
+    "keysSection": "API Keys",
+    "createKey": "Create New Key",
+    "createKeyLabel": "Key Label (optional)",
+    "createKeyPlaceholder": "e.g. MacBook, Claude Desktop",
+    "noKeys": "No API keys yet. Create one to get started.",
+    "keyPrefix": "Key",
+    "created": "Created",
+    "lastUsed": "Last used",
+    "never": "Never",
+    "deleteKey": "Delete",
+    "deleteTitle": "Delete API Key",
+    "deleteConfirm": "Are you sure you want to delete this key? This action cannot be undone.",
+    "promptTitle": "Next Step: Configure Your Agent",
+    "promptDesc": "Copy this prompt and paste it to your AI agent:",
+    "promptText": "I have successfully obtained a whoami API key. Please save this API key to ~/.whoamiagent file in the format:\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\nThen use the whoami skill to load and manage my profile.",
+    "newKeyWarning": "Save this key now — it won't be shown again.",
+    "keyLabel": "Label"
+  },
+  "footer": {
+    "github": "GitHub",
+    "docs": "Documentation",
+    "rights": "© {year} whoami. All rights reserved."
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied!",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "cancel": "Cancel"
+  },
+  "profile": {
+    "title": "My Profile",
+    "sectionTitle": "Identity Profile",
+    "myProfile": "My Profile",
+    "myProfileDesc": "View and edit your identity profile shared across AI agents",
+    "edit": "Edit",
+    "save": "Save",
+    "close": "Close",
+    "saveSuccess": "Profile saved successfully!",
+    "saveError": "Failed to save profile. Please try again.",
+    "fetchError": "Failed to load profile. Please try again.",
+    "empty": "No profile yet",
+    "emptyHint": "Click Edit to create your identity profile.",
+    "editPlaceholder": "Write your profile in Markdown format...\n\n# About Me\n- Name: ...\n- Role: ...\n\n## Preferences\n- ...",
+    "characters": "characters",
+    "overLimit": "Content exceeds the 5000 character limit",
+    "unsavedWarning": "You have unsaved changes. Are you sure you want to close?"
+  }
+}

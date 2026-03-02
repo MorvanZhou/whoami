@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "首页",
+    "dashboard": "控制台",
+    "login": "登录",
+    "logout": "登出",
+    "getStarted": "开始使用"
+  },
+  "hero": {
+    "title": "让每个 AI",
+    "titleHighlight": "都认识你",
+    "subtitle": "一份档案，所有 AI 都能读取。不再重复自我介绍。",
+    "cta": "免费获取 API Key"
+  },
+  "features": {
+    "title": "为什么选择 whoami？",
+    "crossSync": {
+      "title": "跨 AI 同步",
+      "desc": "你的身份档案可在 Claude、ChatGPT、Cursor、Kimi 等所有支持 Skill 的 AI 中使用。"
+    },
+    "privacy": {
+      "title": "隐私优先",
+      "desc": "你的数据安全存储，你控制 AI 能看到什么。随时可以撤销访问权限。"
+    },
+    "devFriendly": {
+      "title": "开发者友好",
+      "desc": "一条命令安装，一个 API Key 配置，适配任何 AI Agent Skill 系统。"
+    }
+  },
+  "install": {
+    "title": "几秒钟即可上手",
+    "step1Title": "复制这段 Prompt",
+    "step1Desc": "将以下内容粘贴给任何 AI Agent，它会自动帮你完成安装和配置：",
+    "step2Title": "或通过命令安装",
+    "step2Desc": "如果你是开发者，可以直接运行命令安装：",
+    "prompt": "请安装一个跨 AI Agent 的用户身份同步 Skill，运行命令：npx skills add MorvanZhou/whoami。安装完毕后，请打开 https://whoamiagent.com/login?redirect=dashboard 让我注册或登录来获取 API Key。",
+    "copied": "已复制！"
+  },
+  "flow": {
+    "title": "工作流程",
+    "step1": "安装 Skill",
+    "step1Desc": "npx skills add",
+    "step2": "获取 API Key",
+    "step2Desc": "登录并配置",
+    "step3": "AI 读取档案",
+    "step3Desc": "自动注入上下文",
+    "step4": "所有 AI 认识你",
+    "step4Desc": "跨 AI 身份同步"
+  },
+  "login": {
+    "title": "登录 whoami",
+    "subtitle": "登录以获取 API Key 并管理你的身份档案。",
+    "github": "使用 GitHub 登录",
+    "google": "使用 Google 登录",
+    "note": "登录后即可免费获取 API Key",
+    "aiContext": {
+      "badge": "此页面由你的 AI Agent 打开",
+      "title": "你的 AI 正在使用 whoami skill",
+      "desc": "你的 AI agent 检测到需要了解你的个人信息并完成后续的任务。你可以在这里快捷登录，并获取到一个安全的个人描述信息的存储空间，让每个 AI 都能认识同一个你。",
+      "safe": "这是安全的正常操作，你可以随时关闭此页面。"
+    }
+  },
+  "dashboard": {
+    "title": "控制台",
+    "subtitle": "管理你的身份档案和 API Key。",
+    "keysSection": "API 密钥",
+    "createKey": "创建新 Key",
+    "createKeyLabel": "Key 标签（可选）",
+    "createKeyPlaceholder": "例如 MacBook、Claude Desktop",
+    "noKeys": "还没有 API Key，创建一个开始使用吧。",
+    "keyPrefix": "密钥",
+    "created": "创建时间",
+    "lastUsed": "最后使用",
+    "never": "从未使用",
+    "deleteKey": "删除",
+    "deleteTitle": "删除 API Key",
+    "deleteConfirm": "确定要删除这个 Key 吗？此操作不可撤销。",
+    "promptTitle": "下一步：配置你的 Agent",
+    "promptDesc": "复制以下 Prompt 粘贴给你的 AI Agent：",
+    "promptText": "我已经成功获得了 whoami 的 API Key：{key}。请将这个 API Key 保存到 ~/.whoamiagent 文件中，格式如下：\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\n然后使用 whoami skill 来加载和管理我的身份档案。",
+    "newKeyWarning": "请立即保存此密钥——之后将不再显示。",
+    "keyLabel": "标签"
+  },
+  "footer": {
+    "github": "GitHub",
+    "docs": "文档",
+    "rights": "© {year} whoami. 保留所有权利。"
+  },
+  "common": {
+    "copy": "复制",
+    "copied": "已复制！",
+    "loading": "加载中...",
+    "error": "出了点问题",
+    "back": "返回",
+    "cancel": "取消"
+  },
+  "profile": {
+    "title": "我的档案",
+    "sectionTitle": "身份档案",
+    "myProfile": "我的档案",
+    "myProfileDesc": "查看和编辑你在各 AI Agent 间共享的身份档案",
+    "edit": "编辑",
+    "save": "保存",
+    "close": "关闭",
+    "saveSuccess": "档案保存成功！",
+    "saveError": "保存失败，请重试。",
+    "fetchError": "加载失败，请重试。",
+    "empty": "暂无档案",
+    "emptyHint": "点击编辑按钮创建你的身份档案。",
+    "editPlaceholder": "使用 Markdown 格式编写你的档案...\n\n# 关于我\n- 名字：...\n- 职业：...\n\n## 偏好\n- ...",
+    "characters": "字符",
+    "overLimit": "内容超出 5000 字符限制",
+    "unsavedWarning": "你有未保存的修改，确定要关闭吗？"
+  }
+}
