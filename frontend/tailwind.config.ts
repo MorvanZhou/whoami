@@ -17,6 +17,22 @@ export default {
         mono: ['Space Mono', 'monospace'],
       },
       colors: {
+        // Semantic theme colors (CSS variable based)
+        th: {
+          bg: 'rgb(var(--color-bg-primary) / <alpha-value>)',
+          'bg-s': 'rgb(var(--color-bg-secondary) / <alpha-value>)',
+          'bg-t': 'rgb(var(--color-bg-tertiary) / <alpha-value>)',
+          'bg-e': 'rgb(var(--color-bg-elevated) / <alpha-value>)',
+          text: 'rgb(var(--color-text-primary) / <alpha-value>)',
+          'text-s': 'rgb(var(--color-text-secondary) / <alpha-value>)',
+          'text-t': 'rgb(var(--color-text-tertiary) / <alpha-value>)',
+          'text-m': 'rgb(var(--color-text-muted) / <alpha-value>)',
+          card: 'rgb(var(--color-card-bg) / <alpha-value>)',
+          input: 'rgb(var(--color-input-bg) / <alpha-value>)',
+          nav: 'rgb(var(--color-nav-bg) / <alpha-value>)',
+          overlay: 'rgb(var(--color-overlay) / <alpha-value>)',
+        },
+        // Static brand colors (unchanged between themes)
         surface: {
           900: '#030712',
           800: '#0A0F1E',

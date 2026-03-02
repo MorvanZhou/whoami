@@ -8,10 +8,10 @@ const localePath = useLocalePath()
     <!-- Animated background grid -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(14,165,233,0.08)_0%,_transparent_70%)]" />
-      <svg class="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+      <svg class="absolute inset-0 w-full h-full opacity-[0.03] text-th-text" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="0.5" />
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
@@ -23,21 +23,16 @@ const localePath = useLocalePath()
 
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <!-- Terminal badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in-up">
-        <span class="w-2 h-2 rounded-full bg-success animate-pulse" />
-        <span class="text-xs font-mono text-gray-400">v0.1.0 — open source</span>
-      </div>
 
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-fade-in-up" style="animation-delay: 0.1s">
-        <span class="text-white">{{ t('hero.title') }}</span>
+        <span class="text-th-text">{{ t('hero.title') }}</span>
         <br>
         <span class="bg-gradient-to-r from-accent via-accent-light to-accent-glow bg-clip-text text-transparent">
           {{ t('hero.titleHighlight') }}
         </span>
       </h1>
 
-      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.2s">
+      <p class="text-lg sm:text-xl text-th-text-s max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.2s">
         {{ t('hero.subtitle') }}
       </p>
 

@@ -10,7 +10,7 @@ const toggleLocale = () => {
 
 <template>
   <button
-    class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-gray-400 hover:text-white hover:bg-white/5 border border-white/10 transition-all duration-200"
+    class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-th-text-s hover:text-th-text hover:bg-th-bg-t border border-th-text/[0.08] transition-all duration-200"
     @click="toggleLocale"
   >
     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

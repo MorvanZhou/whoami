@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background surfaces */
+    --color-bg-primary: 250 250 250;     /* #FAFAFA */
+    --color-bg-secondary: 255 255 255;   /* #FFFFFF */
+    --color-bg-tertiary: 243 244 246;    /* #F3F4F6 */
+    --color-bg-elevated: 229 231 235;    /* #E5E7EB */
+
+    /* Text */
+    --color-text-primary: 17 24 39;      /* #111827 */
+    --color-text-secondary: 75 85 99;    /* #4B5563 */
+    --color-text-tertiary: 156 163 175;  /* #9CA3AF */
+    --color-text-muted: 209 213 219;     /* #D1D5DB */
+
+    /* Border */
+    --color-border-primary: 0 0 0;
+    --color-border-opacity: 0.08;
+
+    /* Overlay */
+    --color-overlay: 0 0 0;
+
+    /* Card / Surface (for components) */
+    --color-card-bg: 255 255 255;
+    --color-card-border: 0 0 0;
+    --color-card-border-opacity: 0.06;
+
+    /* Input */
+    --color-input-bg: 243 244 246;
+    --color-input-border: 0 0 0;
+    --color-input-border-opacity: 0.1;
+
+    /* Nav */
+    --color-nav-bg: 250 250 250;
+
+    /* Footer */
+    --color-footer-border-opacity: 0.06;
+  }
+
+  .dark {
+    /* Background surfaces */
+    --color-bg-primary: 3 7 18;          /* #030712 surface-900 */
+    --color-bg-secondary: 10 15 30;      /* #0A0F1E surface-800 */
+    --color-bg-tertiary: 17 24 39;       /* #111827 surface-700 */
+    --color-bg-elevated: 30 41 59;       /* #1E293B surface-600 */
+
+    /* Text */
+    --color-text-primary: 240 249 255;   /* #F0F9FF */
+    --color-text-secondary: 148 163 184; /* #94A3B8 */
+    --color-text-tertiary: 100 116 139;  /* #64748B */
+    --color-text-muted: 51 65 85;        /* #334155 */
+
+    /* Border */
+    --color-border-primary: 255 255 255;
+    --color-border-opacity: 0.05;
+
+    /* Overlay */
+    --color-overlay: 0 0 0;
+
+    /* Card / Surface */
+    --color-card-bg: 10 15 30;
+    --color-card-border: 255 255 255;
+    --color-card-border-opacity: 0.06;
+
+    /* Input */
+    --color-input-bg: 17 24 39;
+    --color-input-border: 255 255 255;
+    --color-input-border-opacity: 0.1;
+
+    /* Nav */
+    --color-nav-bg: 3 7 18;
+
+    /* Footer */
+    --color-footer-border-opacity: 0.05;
+  }
+}

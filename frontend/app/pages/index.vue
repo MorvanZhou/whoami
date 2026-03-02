@@ -1,8 +1,8 @@
 <template>
   <div>
     <HomeHeroSection />
-    <HomeFlowAnimation />
     <HomeFeaturesSection />
+    <HomeFlowAnimation />
     <HomeInstallGuide />
   </div>
 </template>

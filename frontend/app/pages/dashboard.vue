@@ -106,19 +106,19 @@ const promptText = computed(() => {
 
       <!-- Page header -->
       <header>
-        <h1 class="text-2xl font-bold text-white tracking-tight">{{ t('dashboard.title') }}</h1>
-        <p class="text-sm text-gray-500 mt-1.5">{{ t('dashboard.subtitle') }}</p>
+        <h1 class="text-2xl font-bold text-th-text tracking-tight">{{ t('dashboard.title') }}</h1>
+        <p class="text-sm text-th-text-t mt-1.5">{{ t('dashboard.subtitle') }}</p>
       </header>
 
       <!-- ═══════ Section: Identity Profile ═══════ -->
       <section>
         <div class="flex items-center gap-2.5 mb-4">
           <div class="w-1 h-4 rounded-full bg-accent" />
-          <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-400">{{ t('profile.sectionTitle') }}</h2>
+          <h2 class="text-xs font-semibold uppercase tracking-widest text-th-text-s">{{ t('profile.sectionTitle') }}</h2>
         </div>
 
         <button
-          class="w-full flex items-center justify-between gap-4 px-5 py-4 rounded-xl bg-surface-800 border border-white/[0.06] hover:border-accent/25 transition-all duration-300 group"
+          class="w-full flex items-center justify-between gap-4 px-5 py-4 rounded-xl bg-th-bg-s border border-th-text/[var(--color-card-border-opacity)] hover:border-accent/25 transition-all duration-300 group"
           @click="showProfile = true"
         >
           <div class="flex items-center gap-4">
@@ -128,11 +128,11 @@ const promptText = computed(() => {
               </svg>
             </div>
             <div class="text-left">
-              <h3 class="text-sm font-medium text-white">{{ t('profile.myProfile') }}</h3>
-              <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">{{ t('profile.myProfileDesc') }}</p>
+              <h3 class="text-sm font-medium text-th-text">{{ t('profile.myProfile') }}</h3>
+              <p class="text-xs text-th-text-t mt-0.5 leading-relaxed">{{ t('profile.myProfileDesc') }}</p>
             </div>
           </div>
-          <svg class="w-4 h-4 text-gray-600 group-hover:text-accent/70 group-hover:translate-x-0.5 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-th-text-m group-hover:text-accent/70 group-hover:translate-x-0.5 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -143,10 +143,9 @@ const promptText = computed(() => {
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-2.5">
             <div class="w-1 h-4 rounded-full bg-highlight" />
-            <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-400">{{ t('dashboard.keysSection') }}</h2>
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-th-text-s">{{ t('dashboard.keysSection') }}</h2>
           </div>
 
-          <!-- Create key button (inline in section header) -->
           <button
             v-if="!showCreate"
             class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-accent border border-accent/20 hover:bg-accent/10 hover:border-accent/40 transition-all duration-200"
@@ -175,16 +174,16 @@ const promptText = computed(() => {
                 <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <h3 class="text-sm font-semibold text-white">{{ t('dashboard.promptTitle') }}</h3>
+                <h3 class="text-sm font-semibold text-th-text">{{ t('dashboard.promptTitle') }}</h3>
               </div>
-              <p class="text-xs text-gray-400 mb-3 ml-6">{{ t('dashboard.promptDesc') }}</p>
+              <p class="text-xs text-th-text-s mb-3 ml-6">{{ t('dashboard.promptDesc') }}</p>
               <div class="ml-6">
                 <CopyBlock :text="promptText" label="AGENT PROMPT" prominent />
               </div>
             </div>
 
             <!-- Raw key display -->
-            <div class="p-4 rounded-xl bg-surface-800 border border-white/[0.06]">
+            <div class="p-4 rounded-xl bg-th-bg-s border border-th-text/[var(--color-card-border-opacity)]">
               <div class="flex items-center gap-2 mb-2.5">
                 <svg class="w-3.5 h-3.5 text-warning/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -205,8 +204,8 @@ const promptText = computed(() => {
           leave-from-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div v-if="showCreate" class="mb-5 p-5 rounded-xl bg-surface-800 border border-white/[0.06]">
-            <label class="block text-xs font-medium text-gray-400 mb-2">
+          <div v-if="showCreate" class="mb-5 p-5 rounded-xl bg-th-bg-s border border-th-text/[var(--color-card-border-opacity)]">
+            <label class="block text-xs font-medium text-th-text-s mb-2">
               {{ t('dashboard.createKeyLabel') }}
             </label>
             <div class="flex gap-3">
@@ -214,7 +213,7 @@ const promptText = computed(() => {
                 v-model="newLabel"
                 type="text"
                 :placeholder="t('dashboard.createKeyPlaceholder')"
-                class="flex-1 px-4 py-2.5 rounded-lg bg-surface-700 border border-white/10 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all"
+                class="flex-1 px-4 py-2.5 rounded-lg bg-th-input border border-th-text/[var(--color-input-border-opacity)] text-th-text text-sm placeholder-th-text-m focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all"
                 @keyup.enter="createKey"
               >
               <button
@@ -232,7 +231,7 @@ const promptText = computed(() => {
           <div v-if="loading" class="flex items-center justify-center py-10">
             <div class="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
           </div>
-          <div v-else-if="keys.length === 0" class="text-center py-10 text-gray-600 text-sm">
+          <div v-else-if="keys.length === 0" class="text-center py-10 text-th-text-t text-sm">
             {{ t('dashboard.noKeys') }}
           </div>
           <template v-else>

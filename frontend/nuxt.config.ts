@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true, // 启用SSR以生成完整HTML
 
+  css: ['~/assets/css/main.css'],
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',

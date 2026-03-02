@@ -2,9 +2,11 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const { isLoggedIn, user, logout, fetchUser } = useAuth()
+const { initSystemListener } = useTheme()
 const showUserMenu = ref(false)
 
 onMounted(async () => {
+  initSystemListener()
   await fetchUser()
 })
 
@@ -14,9 +16,9 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-surface-900 text-gray-100 font-sans" @click="closeMenu">
+  <div class="min-h-screen bg-th-bg text-th-text font-sans" @click="closeMenu">
     <!-- Nav -->
-    <nav class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-surface-900/80 backdrop-blur-xl">
+    <nav class="fixed top-0 inset-x-0 z-50 border-b border-th-text/[var(--color-border-opacity)] bg-th-nav/80 backdrop-blur-xl">
       <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <!-- Logo -->
         <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 group">
@@ -27,13 +29,14 @@ const closeMenu = () => {
         </NuxtLink>
 
         <!-- Right -->
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
+          <ThemeSwitcher />
           <LanguageSwitcher />
 
           <template v-if="isLoggedIn">
             <div class="relative" @click.stop>
               <button
-                class="flex items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-white/5 transition-colors"
+                class="flex items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-th-bg-t transition-colors"
                 @click="showUserMenu = !showUserMenu"
               >
                 <img
@@ -42,8 +45,8 @@ const closeMenu = () => {
                   :alt="user.name || ''"
                   class="w-7 h-7 rounded-full ring-2 ring-accent/30"
                 >
-                <span class="text-sm text-gray-300 hidden sm:inline">{{ user?.name }}</span>
-                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span class="text-sm text-th-text-s hidden sm:inline">{{ user?.name }}</span>
+                <svg class="w-4 h-4 text-th-text-t" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -58,17 +61,17 @@ const closeMenu = () => {
               >
                 <div
                   v-if="showUserMenu"
-                  class="absolute right-0 mt-2 w-48 rounded-xl bg-surface-700 border border-white/10 shadow-2xl overflow-hidden"
+                  class="absolute right-0 mt-2 w-48 rounded-xl bg-th-card border border-th-text/[0.08] shadow-2xl overflow-hidden"
                 >
                   <NuxtLink
                     :to="localePath('/dashboard')"
-                    class="block px-4 py-2.5 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors"
+                    class="block px-4 py-2.5 text-sm text-th-text-s hover:bg-th-bg-t hover:text-th-text transition-colors"
                     @click="closeMenu"
                   >
                     {{ t('nav.dashboard') }}
                   </NuxtLink>
                   <button
-                    class="block w-full text-left px-4 py-2.5 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors"
+                    class="block w-full text-left px-4 py-2.5 text-sm text-th-text-s hover:bg-th-bg-t hover:text-th-text transition-colors"
                     @click="logout"
                   >
                     {{ t('nav.logout') }}
@@ -97,11 +100,11 @@ const closeMenu = () => {
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 py-8 mt-20">
-      <div class="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+    <footer class="border-t border-th-text/[var(--color-footer-border-opacity)] py-8 mt-20">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-th-text-t">
         <span>{{ t('footer.rights', { year: new Date().getFullYear() }) }}</span>
         <div class="flex items-center gap-6">
-          <a href="https://github.com/MorvanZhou/whoami" target="_blank" rel="noopener" class="hover:text-gray-300 transition-colors">
+          <a href="https://github.com/MorvanZhou/whoami" target="_blank" rel="noopener" class="hover:text-th-text-s transition-colors">
             {{ t('footer.github') }}
           </a>
         </div>

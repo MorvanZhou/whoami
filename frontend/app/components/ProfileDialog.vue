@@ -113,7 +113,7 @@ watch(() => props.open, (val) => {
     >
       <div
         v-if="open"
-        class="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+        class="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-th-overlay/60 backdrop-blur-sm"
         @mousedown="onBackdrop"
       >
         <Transition
@@ -126,10 +126,10 @@ watch(() => props.open, (val) => {
         >
           <div
             v-if="open"
-            class="w-full max-w-2xl max-h-[85vh] rounded-2xl bg-surface-800 border border-white/[0.08] shadow-2xl shadow-black/40 flex flex-col overflow-hidden"
+            class="w-full max-w-2xl max-h-[85vh] rounded-2xl bg-th-card border border-th-text/[0.08] shadow-2xl flex flex-col overflow-hidden"
           >
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-th-text/[var(--color-card-border-opacity)]">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center ring-1 ring-accent/10">
                   <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,14 +137,14 @@ watch(() => props.open, (val) => {
                   </svg>
                 </div>
                 <div>
-                  <h2 class="text-base font-semibold text-white">{{ t('profile.title') }}</h2>
-                  <p v-if="!isEditing && profileContent" class="text-[11px] text-gray-500 mt-0.5">
+                  <h2 class="text-base font-semibold text-th-text">{{ t('profile.title') }}</h2>
+                  <p v-if="!isEditing && profileContent" class="text-[11px] text-th-text-t mt-0.5">
                     {{ charCount }} {{ t('profile.characters') }}
                   </p>
                 </div>
               </div>
               <button
-                class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-colors"
+                class="w-8 h-8 rounded-lg flex items-center justify-center text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                 @click="handleClose"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,20 +166,20 @@ watch(() => props.open, (val) => {
                 <div v-if="!isEditing">
                   <div v-if="profileContent" class="relative">
                     <div
-                      class="prose prose-invert prose-sm max-w-none prose-headings:text-white prose-headings:font-semibold prose-h1:text-lg prose-h1:border-b prose-h1:border-white/[0.06] prose-h1:pb-2 prose-h2:text-base prose-h2:mt-6 prose-h2:mb-2 prose-p:text-gray-300 prose-p:leading-relaxed prose-strong:text-accent-glow prose-strong:font-semibold prose-li:text-gray-300 prose-li:marker:text-accent/50 prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-accent-glow prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-hr:border-white/[0.06] selection:bg-accent/20"
+                      class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-th-text prose-headings:font-semibold prose-h1:text-lg prose-h1:border-b prose-h1:border-th-text/[0.06] prose-h1:pb-2 prose-h2:text-base prose-h2:mt-6 prose-h2:mb-2 prose-p:text-th-text-s prose-p:leading-relaxed prose-strong:text-accent-glow prose-strong:font-semibold prose-li:text-th-text-s prose-li:marker:text-accent/50 prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-accent-glow prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-hr:border-th-text/[0.06] selection:bg-accent/20"
                       v-html="renderedHtml"
                     />
                   </div>
 
                   <!-- Empty state -->
                   <div v-else class="flex flex-col items-center justify-center py-14">
-                    <div class="w-14 h-14 rounded-2xl bg-surface-700 flex items-center justify-center mb-5 ring-1 ring-white/[0.06]">
-                      <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-14 h-14 rounded-2xl bg-th-bg-t flex items-center justify-center mb-5 ring-1 ring-th-text/[0.06]">
+                      <svg class="w-6 h-6 text-th-text-m" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                     </div>
-                    <p class="text-sm text-gray-400 font-medium">{{ t('profile.empty') }}</p>
-                    <p class="text-xs text-gray-600 mt-1">{{ t('profile.emptyHint') }}</p>
+                    <p class="text-sm text-th-text-s font-medium">{{ t('profile.empty') }}</p>
+                    <p class="text-xs text-th-text-m mt-1">{{ t('profile.emptyHint') }}</p>
                   </div>
                 </div>
 
@@ -187,12 +187,12 @@ watch(() => props.open, (val) => {
                 <div v-else>
                   <textarea
                     v-model="profileContent"
-                    class="w-full h-80 px-4 py-3.5 rounded-xl bg-surface-900/60 border border-white/[0.08] text-sm text-gray-200 font-mono leading-relaxed placeholder-gray-600 focus:outline-none focus:border-accent/30 focus:ring-1 focus:ring-accent/15 transition-all resize-y"
+                    class="w-full h-80 px-4 py-3.5 rounded-xl bg-th-input border border-th-text/[var(--color-input-border-opacity)] text-sm text-th-text font-mono leading-relaxed placeholder-th-text-m focus:outline-none focus:border-accent/30 focus:ring-1 focus:ring-accent/15 transition-all resize-y"
                     :placeholder="t('profile.editPlaceholder')"
                     spellcheck="false"
                   />
                   <div class="flex items-center justify-between mt-2 text-[11px]">
-                    <span :class="isOverLimit ? 'text-danger' : 'text-gray-600'">
+                    <span :class="isOverLimit ? 'text-danger' : 'text-th-text-m'">
                       {{ charCount }} / 5,000 {{ t('profile.characters') }}
                     </span>
                     <span v-if="isOverLimit" class="text-danger font-medium">
@@ -218,10 +218,10 @@ watch(() => props.open, (val) => {
             </div>
 
             <!-- Footer -->
-            <div class="flex items-center justify-end gap-2.5 px-6 py-3.5 border-t border-white/[0.06] bg-surface-900/30">
+            <div class="flex items-center justify-end gap-2.5 px-6 py-3.5 border-t border-th-text/[var(--color-card-border-opacity)] bg-th-bg/30">
               <template v-if="!isEditing">
                 <button
-                  class="px-4 py-2 rounded-lg text-xs font-medium text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-colors"
+                  class="px-4 py-2 rounded-lg text-xs font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                   @click="handleClose"
                 >
                   {{ t('profile.close') }}
@@ -238,7 +238,7 @@ watch(() => props.open, (val) => {
               </template>
               <template v-else>
                 <button
-                  class="px-4 py-2 rounded-lg text-xs font-medium text-gray-500 hover:text-gray-300 hover:bg-white/5 transition-colors"
+                  class="px-4 py-2 rounded-lg text-xs font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                   @click="cancelEditing"
                 >
                   {{ t('common.cancel') }}

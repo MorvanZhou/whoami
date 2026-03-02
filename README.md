@@ -10,11 +10,13 @@ No more repeating yourself. Just talk.
 
 ## Why whoami?
 
-- **One profile, all AIs** — Write your profile once, share it across every AI tool you use
-- **AI does the work** — Your AI agent installs, configures, and manages everything for you
-- **Always up to date** — Tell any AI something new about yourself, and all your AIs learn it
-- **Privacy first** — You own your data, you control what's shared
-- **Zero friction** — No complex setup, no coding required
+Ever run into these?
+
+- **Switch AI, lose identity** — You move from ChatGPT to Claude, and it has no idea who you are. You start introducing yourself all over again.
+- **New chat, blank slate** — Even with the same AI, every new conversation starts from zero. Your context, preferences, and history — all gone.
+- **Can't edit what AI knows** — You want to update how AI sees you, but there's no easy way to manage your identity across platforms.
+
+**whoami** solves all three. One profile, synced everywhere, fully in your control.
 
 ## Quick Start
 

@@ -13,18 +13,22 @@
     "cta": "免费获取 API Key"
   },
   "features": {
-    "title": "为什么选择 whoami？",
-    "crossSync": {
-      "title": "跨 AI 同步",
-      "desc": "你的身份档案可在 Claude、ChatGPT、Cursor、Kimi 等所有支持 Skill 的 AI 中使用。"
+    "title": "你是否也遇到过？",
+    "subtitle": "whoami 帮你解决这些问题。",
+    "switchAI": {
+      "title": "换个 AI，它就不认识你了",
+      "desc": "从 ChatGPT 切到 Claude，AI 完全不知道你是谁。自我介绍，重新来过。",
+      "label": "AI-A 认识你，AI-B 不认识"
     },
-    "privacy": {
-      "title": "隐私优先",
-      "desc": "你的数据安全存储，你控制 AI 能看到什么。随时可以撤销访问权限。"
+    "newChat": {
+      "title": "新对话，一切归零",
+      "desc": "即使是同一个 AI，每次新建对话都从零开始。你的上下文、偏好、历史——全部消失。",
+      "label": "每次会话上下文都消失"
     },
-    "devFriendly": {
-      "title": "开发者友好",
-      "desc": "一条命令安装，一个 API Key 配置，适配任何 AI Agent Skill 系统。"
+    "locked": {
+      "title": "改不了 AI 对你的认知",
+      "desc": "你想更新 AI 对你的了解，但设置被藏得很深或根本改不了。你没有简单的方式管理你的 AI 身份。",
+      "label": "身份档案被平台锁定"
     }
   },
   "install": {
@@ -32,20 +36,28 @@
     "step1Title": "复制这段 Prompt",
     "step1Desc": "将以下内容粘贴给任何 AI Agent，它会自动帮你完成安装和配置：",
     "step2Title": "或通过命令安装",
-    "step2Desc": "如果你是开发者，可以直接运行命令安装：",
+    "step2Desc": "如果你是开发者，可以直接运行命令安装 Agent Skill：",
     "prompt": "请安装一个跨 AI Agent 的用户身份同步 Skill，运行命令：npx skills add MorvanZhou/whoami。安装完毕后，请打开 https://whoamiagent.com/login?redirect=dashboard 让我注册或登录来获取 API Key。",
     "copied": "已复制！"
   },
-  "flow": {
-    "title": "工作流程",
-    "step1": "安装 Skill",
-    "step1Desc": "npx skills add",
-    "step2": "获取 API Key",
-    "step2Desc": "登录并配置",
-    "step3": "AI 读取档案",
-    "step3Desc": "自动注入上下文",
-    "step4": "所有 AI 认识你",
-    "step4Desc": "跨 AI 身份同步"
+  "solutions": {
+    "title": "whoami 如何解决",
+    "subtitle": "一份档案，所有 AI，始终同步。",
+    "syncAll": {
+      "title": "一份档案，全平台通用",
+      "desc": "在 whoami 写一次档案 —— Claude、ChatGPT、Cursor 等所有 AI 都能读取同一个你。"
+    },
+    "persist": {
+      "title": "上下文永不丢失",
+      "desc": "你的档案存储在云端。新对话、新的一天 —— 每次会话都自动加载完整的上下文。",
+      "label": "每次会话自动加载"
+    },
+    "control": {
+      "title": "随时编辑，全局同步",
+      "desc": "从控制台修改档案，或直接告诉 AI 更新。改动会即时同步到所有 AI。",
+      "label": "你掌控自己的身份",
+      "save": "保存"
+    }
   },
   "login": {
     "title": "登录 whoami",
@@ -111,5 +123,11 @@
     "characters": "字符",
     "overLimit": "内容超出 5000 字符限制",
     "unsavedWarning": "你有未保存的修改，确定要关闭吗？"
+  },
+  "theme": {
+    "title": "主题",
+    "dark": "深色",
+    "light": "浅色",
+    "system": "跟随系统"
   }
 }

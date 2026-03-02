@@ -13,18 +13,22 @@
     "cta": "Get Your API Key for FREE"
   },
   "features": {
-    "title": "Why whoami?",
-    "crossSync": {
-      "title": "Cross-AI Sync",
-      "desc": "Your identity profile works across Claude, ChatGPT, Cursor, Kimi, and any AI that supports skills."
+    "title": "Sound familiar?",
+    "subtitle": "whoami fixes all of these.",
+    "switchAI": {
+      "title": "Switch AI, Lose Identity",
+      "desc": "You move from ChatGPT to Claude — and suddenly it has no idea who you are. You start over. Again.",
+      "label": "AI-A knows you, AI-B doesn't"
     },
-    "privacy": {
-      "title": "Privacy First",
-      "desc": "Your data is stored securely. You control what AI agents can see. Revoke access anytime."
+    "newChat": {
+      "title": "New Chat, Blank Slate",
+      "desc": "Even with the same AI, every new conversation starts from zero. Your context, preferences, history — all gone.",
+      "label": "Context vanishes every session"
     },
-    "devFriendly": {
-      "title": "Developer Friendly",
-      "desc": "One command to install. One API key to configure. Works with any AI agent skill system."
+    "locked": {
+      "title": "Can't Edit What AI Knows",
+      "desc": "You want to update how AI sees you, but the settings are buried or locked. There's no easy way to manage your AI identity.",
+      "label": "Profile locked by platform"
     }
   },
   "install": {
@@ -32,20 +36,28 @@
     "step1Title": "Copy This Prompt",
     "step1Desc": "Paste this to any AI agent and it will install and configure everything for you:",
     "step2Title": "Or Install via Command",
-    "step2Desc": "If you're a developer, you can install the skill directly:",
+    "step2Desc": "If you're a developer, you can install the agent skill directly:",
     "prompt": "Install a cross-AI agent user identity sync skill by running: npx skills add MorvanZhou/whoami. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.",
     "copied": "Copied!"
   },
-  "flow": {
-    "title": "How it works",
-    "step1": "Install Skill",
-    "step1Desc": "npx skills add",
-    "step2": "Get API Key",
-    "step2Desc": "Login & configure",
-    "step3": "AI Reads Profile",
-    "step3Desc": "Auto-injected context",
-    "step4": "Every AI Knows You",
-    "step4Desc": "Cross-AI identity sync"
+  "solutions": {
+    "title": "How whoami solves it",
+    "subtitle": "One profile. Every AI. Always in sync.",
+    "syncAll": {
+      "title": "One Profile, All AIs",
+      "desc": "Write your profile once on whoami — Claude, ChatGPT, Cursor, and every AI agent reads the same you."
+    },
+    "persist": {
+      "title": "Context That Never Disappears",
+      "desc": "Your profile lives in the cloud. New chat, new day — every session starts with full context.",
+      "label": "Always loaded, every session"
+    },
+    "control": {
+      "title": "Edit Anytime, Sync Everywhere",
+      "desc": "Update your profile from the dashboard or just tell your AI. Changes sync to all agents instantly.",
+      "label": "You own your identity",
+      "save": "SAVE"
+    }
   },
   "login": {
     "title": "Sign in to whoami",
@@ -111,5 +123,11 @@
     "characters": "characters",
     "overLimit": "Content exceeds the 5000 character limit",
     "unsavedWarning": "You have unsaved changes. Are you sure you want to close?"
+  },
+  "theme": {
+    "title": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
   }
 }

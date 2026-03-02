@@ -32,7 +32,7 @@ onMounted(async () => {
     </div>
     <div v-else class="text-center">
       <div class="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-      <p class="text-gray-400">{{ t('common.loading') }}</p>
+      <p class="text-th-text-s">{{ t('common.loading') }}</p>
     </div>
   </div>
 </template>

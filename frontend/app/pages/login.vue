@@ -29,7 +29,7 @@ watchEffect(() => {
       <svg class="absolute inset-0 w-full h-full opacity-[0.02]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="loginGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" class="text-th-text" stroke-width="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#loginGrid)" />
@@ -38,14 +38,13 @@ watchEffect(() => {
 
     <!-- Login card -->
     <div class="relative z-10 w-full" :class="isFromAgent ? 'max-w-md' : 'max-w-sm'">
-      <!-- AI context banner — only when opened by agent -->
+      <!-- AI context banner -->
       <Transition
         enter-active-class="transition duration-500 ease-out"
         enter-from-class="opacity-0 -translate-y-3"
         enter-to-class="opacity-100 translate-y-0"
       >
         <div v-if="isFromAgent" class="mb-5 p-5 rounded-2xl bg-accent/[0.04] border border-accent/15 backdrop-blur-sm">
-          <!-- Badge -->
           <div class="flex items-center gap-2.5 mb-3">
             <span class="relative flex h-2.5 w-2.5">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
@@ -53,32 +52,30 @@ watchEffect(() => {
             </span>
             <span class="text-sm font-bold text-accent tracking-wide">{{ t('login.aiContext.badge') }}</span>
           </div>
-          <!-- Explanation -->
-          <h3 class="text-sm font-bold text-white/90 mb-1.5">{{ t('login.aiContext.title') }}</h3>
-          <p class="text-xs leading-relaxed text-gray-400">{{ t('login.aiContext.desc') }}</p>
-          <!-- Safety note -->
-          <div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-white/5">
+          <h3 class="text-sm font-bold text-th-text/90 mb-1.5">{{ t('login.aiContext.title') }}</h3>
+          <p class="text-xs leading-relaxed text-th-text-s">{{ t('login.aiContext.desc') }}</p>
+          <div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-th-text/[var(--color-border-opacity)]">
             <svg class="w-3.5 h-3.5 text-success/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            <span class="text-[11px] text-gray-500">{{ t('login.aiContext.safe') }}</span>
+            <span class="text-[11px] text-th-text-t">{{ t('login.aiContext.safe') }}</span>
           </div>
         </div>
       </Transition>
 
-      <div class="p-8 rounded-2xl bg-surface-800/60 border border-white/5 backdrop-blur-xl shadow-2xl">
+      <div class="p-8 rounded-2xl bg-th-card/60 border border-th-text/[var(--color-card-border-opacity)] backdrop-blur-xl shadow-2xl">
         <!-- Logo -->
         <div class="text-center mb-8">
           <img src="/logo.png" alt="whoami" class="w-14 h-14 mx-auto mb-3" />
           <h1 class="text-accent font-mono font-bold text-2xl">{{ t('login.title') }}</h1>
-          <p class="text-sm text-gray-400 mt-2">{{ t('login.subtitle') }}</p>
+          <p class="text-sm text-th-text-s mt-2">{{ t('login.subtitle') }}</p>
         </div>
 
         <!-- OAuth buttons -->
         <OAuthButtons :redirect="redirect || 'dashboard'" />
 
         <!-- Note -->
-        <p class="text-center text-xs text-gray-500 mt-6">
+        <p class="text-center text-xs text-th-text-t mt-6">
           {{ t('login.note') }}
         </p>
       </div>

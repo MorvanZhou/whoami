@@ -29,10 +29,10 @@ const copy = async () => {
 </script>
 
 <template>
-  <div class="group relative rounded-xl bg-surface-800 border border-white/5 overflow-hidden">
+  <div class="group relative rounded-xl bg-th-bg-s border border-th-text/[var(--color-card-border-opacity)] overflow-hidden">
     <!-- Label row: with prominent copy button inline -->
     <div v-if="label" class="flex items-center justify-between px-4 pt-3">
-      <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">{{ label }}</span>
+      <span class="text-xs font-medium text-th-text-t uppercase tracking-wider">{{ label }}</span>
       <button
         v-if="prominent"
         class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all duration-200"
@@ -53,7 +53,7 @@ const copy = async () => {
     <div class="p-4" :class="prominent ? '' : 'flex items-start gap-3'">
       <pre
         class="flex-1 text-sm leading-relaxed whitespace-pre-wrap break-all"
-        :class="mono ? 'font-mono text-accent-glow' : 'text-gray-300'"
+        :class="mono ? 'font-mono text-accent-glow' : 'text-th-text-s'"
       >{{ text }}</pre>
       <!-- Default: inline button beside text -->
       <button
@@ -61,7 +61,7 @@ const copy = async () => {
         class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
         :class="copied
           ? 'bg-success/20 text-success border border-success/30'
-          : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/10'"
+          : 'bg-th-bg-t text-th-text-t hover:text-th-text hover:bg-th-bg-e border border-th-text/[0.08]'"
         @click="copy"
       >
         <svg v-if="!copied" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

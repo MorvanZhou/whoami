@@ -24,7 +24,7 @@ const formatDate = (dateStr: string) => {
 </script>
 
 <template>
-  <div class="group flex items-center justify-between gap-4 px-4 py-3.5 rounded-xl bg-surface-800 border border-white/[0.06] hover:border-white/10 transition-all duration-200">
+  <div class="group flex items-center justify-between gap-4 px-4 py-3.5 rounded-xl bg-th-bg-s border border-th-text/[var(--color-card-border-opacity)] hover:border-th-text/[0.12] transition-all duration-200">
     <div class="flex items-center gap-3.5 min-w-0">
       <!-- Key icon -->
       <div class="shrink-0 w-8 h-8 rounded-lg bg-highlight/8 flex items-center justify-center">
@@ -36,13 +36,13 @@ const formatDate = (dateStr: string) => {
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
           <code class="text-sm font-mono text-accent-glow tracking-wide">{{ keyPrefix }}••••{{ keySuffix }}</code>
-          <span v-if="label" class="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-500 font-medium">
+          <span v-if="label" class="text-[10px] px-1.5 py-0.5 rounded bg-th-text/[0.04] text-th-text-t font-medium">
             {{ label }}
           </span>
         </div>
-        <div class="flex items-center gap-3 text-[11px] text-gray-600">
+        <div class="flex items-center gap-3 text-[11px] text-th-text-t">
           <span>{{ t('dashboard.created') }} {{ formatDate(createdAt) }}</span>
-          <span class="text-gray-700">·</span>
+          <span class="text-th-text-m">·</span>
           <span>
             {{ t('dashboard.lastUsed') }}
             {{ lastUsed ? formatDate(lastUsed) : t('dashboard.never') }}
@@ -52,7 +52,7 @@ const formatDate = (dateStr: string) => {
     </div>
 
     <button
-      class="shrink-0 px-2.5 py-1 rounded-md text-[11px] font-medium text-gray-600 hover:text-danger hover:bg-danger/8 opacity-0 group-hover:opacity-100 transition-all duration-200"
+      class="shrink-0 px-2.5 py-1 rounded-md text-[11px] font-medium text-th-text-t hover:text-danger hover:bg-danger/8 opacity-0 group-hover:opacity-100 transition-all duration-200"
       @click="emit('delete', id)"
     >
       {{ t('dashboard.deleteKey') }}
