@@ -2,10 +2,17 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
-const { isLoggedIn } = useAuth()
+const { isLoggedIn, fetchUser, token } = useAuth()
 
-const redirect = computed(() => (route.query.redirect as string) || '')
+const rawRedirect = computed(() => (route.query.redirect as string) || '')
+const redirect = computed(() => rawRedirect.value.replace(/^\/+/, ''))
 const isFromAgent = computed(() => redirect.value === 'dashboard')
+
+onMounted(async () => {
+  if (token.value && !isLoggedIn.value) {
+    await fetchUser()
+  }
+})
 
 watchEffect(() => {
   if (isLoggedIn.value) {
