@@ -59,13 +59,13 @@ watchEffect(() => {
             </span>
             <span class="text-sm font-bold text-accent tracking-wide">{{ t('login.aiContext.badge') }}</span>
           </div>
-          <h3 class="text-sm font-bold text-th-text/90 mb-1.5">{{ t('login.aiContext.title') }}</h3>
-          <p class="text-xs leading-relaxed text-th-text-s">{{ t('login.aiContext.desc') }}</p>
+          <h3 class="text-base font-bold text-th-text/90 mb-1.5">{{ t('login.aiContext.title') }}</h3>
+          <p class="text-sm leading-relaxed text-th-text-s">{{ t('login.aiContext.desc') }}</p>
           <div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-th-text/[var(--color-border-opacity)]">
-            <svg class="w-3.5 h-3.5 text-success/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-success/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            <span class="text-[11px] text-th-text-t">{{ t('login.aiContext.safe') }}</span>
+            <span class="text-xs text-th-text-t">{{ t('login.aiContext.safe') }}</span>
           </div>
         </div>
       </Transition>
@@ -82,7 +82,7 @@ watchEffect(() => {
         <OAuthButtons :redirect="redirect || 'dashboard'" />
 
         <!-- Note -->
-        <p class="text-center text-xs text-th-text-t mt-6">
+        <p class="text-center text-sm text-th-text-t mt-6">
           {{ t('login.note') }}
         </p>
       </div>

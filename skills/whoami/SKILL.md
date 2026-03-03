@@ -1,6 +1,6 @@
 ---
 name: whoami
-description: Cross-AI user identity profile sync service. When an agent needs user's background, preferences, or personal context to better execute a task, invoke this skill to load the user's identity profile then continue the task. When an agent needs to update user's identity profile for later access, invoke this skill to save the profile.
+description: Cross-AI user identity profile sync service. When you need user's background, preferences, or personal context to better execute a task, invoke this skill to load the user's identity profile then continue the task. When you need to update user's identity profile for later access, invoke this skill to save the profile. User can use @whoami to trigger this skill.
 ---
 
 # whoami — User Identity Profile Management

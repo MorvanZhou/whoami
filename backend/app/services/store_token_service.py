@@ -30,13 +30,14 @@ def generate_store_token() -> str:
 
 
 async def create_store_token(
-    db: AsyncSession, user_id: str, api_key_plain: str
+    db: AsyncSession, user_id: str, api_key_plain: str, api_key_id: str
 ) -> str:
     token = generate_store_token()
     store_token = StoreApiToken(
         user_id=user_id,
         token=token,
         api_key_plain=api_key_plain,
+        api_key_id=api_key_id,
     )
     db.add(store_token)
     await db.commit()
@@ -73,3 +74,17 @@ async def consume_store_token(db: AsyncSession, token: str) -> str | None:
     await db.commit()
     logger.info(f"[whoami] Store token consumed for user {store_token.user_id}")
     return store_token.api_key_plain
+
+
+async def is_store_token_consumed(db: AsyncSession, api_key_id: str, user_id: str) -> bool:
+    """Check if the store token associated with an api_key_id has been consumed."""
+    result = await db.execute(
+        select(StoreApiToken).where(
+            StoreApiToken.api_key_id == api_key_id,
+            StoreApiToken.user_id == user_id,
+        )
+    )
+    store_token = result.scalar_one_or_none()
+    if not store_token:
+        return False
+    return store_token.is_used

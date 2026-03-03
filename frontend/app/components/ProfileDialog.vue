@@ -131,14 +131,14 @@ watch(() => props.open, (val) => {
             <!-- Header -->
             <div class="flex items-center justify-between px-6 py-4 border-b border-th-text/[var(--color-card-border-opacity)]">
               <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center ring-1 ring-accent/10">
-                  <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center ring-1 ring-accent/10">
+                  <svg class="w-4.5 h-4.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
                 <div>
-                  <h2 class="text-base font-semibold text-th-text">{{ t('profile.title') }}</h2>
-                  <p v-if="!isEditing && profileContent" class="text-[11px] text-th-text-t mt-0.5">
+                  <h2 class="text-lg font-semibold text-th-text">{{ t('profile.title') }}</h2>
+                  <p v-if="!isEditing && profileContent" class="text-xs text-th-text-t mt-0.5">
                     {{ charCount }} {{ t('profile.characters') }}
                   </p>
                 </div>
@@ -147,7 +147,7 @@ watch(() => props.open, (val) => {
                 class="w-8 h-8 rounded-lg flex items-center justify-center text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                 @click="handleClose"
               >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -178,8 +178,8 @@ watch(() => props.open, (val) => {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                     </div>
-                    <p class="text-sm text-th-text-s font-medium">{{ t('profile.empty') }}</p>
-                    <p class="text-xs text-th-text-m mt-1">{{ t('profile.emptyHint') }}</p>
+                    <p class="text-base text-th-text-s font-medium">{{ t('profile.empty') }}</p>
+                    <p class="text-sm text-th-text-m mt-1">{{ t('profile.emptyHint') }}</p>
                   </div>
                 </div>
 
@@ -187,11 +187,11 @@ watch(() => props.open, (val) => {
                 <div v-else>
                   <textarea
                     v-model="profileContent"
-                    class="w-full h-80 px-4 py-3.5 rounded-xl bg-th-input border border-th-text/[var(--color-input-border-opacity)] text-sm text-th-text font-mono leading-relaxed placeholder-th-text-m focus:outline-none focus:border-accent/30 focus:ring-1 focus:ring-accent/15 transition-all resize-y"
+                    class="w-full h-80 px-4 py-3.5 rounded-xl bg-th-input border border-th-text/[var(--color-input-border-opacity)] text-base text-th-text font-mono leading-relaxed placeholder-th-text-m focus:outline-none focus:border-accent/30 focus:ring-1 focus:ring-accent/15 transition-all resize-y"
                     :placeholder="t('profile.editPlaceholder')"
                     spellcheck="false"
                   />
-                  <div class="flex items-center justify-between mt-2 text-[11px]">
+                  <div class="flex items-center justify-between mt-2 text-xs">
                     <span :class="isOverLimit ? 'text-danger' : 'text-th-text-m'">
                       {{ charCount }} / 5,000 {{ t('profile.characters') }}
                     </span>
@@ -208,29 +208,29 @@ watch(() => props.open, (val) => {
                 enter-from-class="opacity-0 -translate-y-1"
                 enter-to-class="opacity-100 translate-y-0"
               >
-                <div v-if="saveMessage" class="mt-4 px-4 py-2.5 rounded-lg bg-success/8 border border-success/15 text-xs text-success font-medium">
+                <div v-if="saveMessage" class="mt-4 px-4 py-2.5 rounded-lg bg-success/8 border border-success/15 text-sm text-success font-medium">
                   {{ saveMessage }}
                 </div>
               </Transition>
-              <div v-if="saveError" class="mt-4 px-4 py-2.5 rounded-lg bg-danger/8 border border-danger/15 text-xs text-danger font-medium">
+              <div v-if="saveError" class="mt-4 px-4 py-2.5 rounded-lg bg-danger/8 border border-danger/15 text-sm text-danger font-medium">
                 {{ saveError }}
               </div>
             </div>
 
             <!-- Footer -->
-            <div class="flex items-center justify-end gap-2.5 px-6 py-3.5 border-t border-th-text/[var(--color-card-border-opacity)] bg-th-bg/30">
+            <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-th-text/[var(--color-card-border-opacity)] bg-th-bg/30">
               <template v-if="!isEditing">
                 <button
-                  class="px-4 py-2 rounded-lg text-xs font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
+                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                   @click="handleClose"
                 >
                   {{ t('profile.close') }}
                 </button>
                 <button
-                  class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-accent hover:bg-accent-light transition-colors"
+                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light transition-colors"
                   @click="startEditing"
                 >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
                   {{ t('profile.edit') }}
@@ -238,18 +238,18 @@ watch(() => props.open, (val) => {
               </template>
               <template v-else>
                 <button
-                  class="px-4 py-2 rounded-lg text-xs font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
+                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
                   @click="cancelEditing"
                 >
                   {{ t('common.cancel') }}
                 </button>
                 <button
                   :disabled="!hasChanges || isOverLimit || saving"
-                  class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-accent hover:bg-accent-light transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                   @click="saveProfile"
                 >
-                  <div v-if="saving" class="w-3.5 h-3.5 border-2 border-white/60 border-t-transparent rounded-full animate-spin" />
-                  <svg v-else class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div v-if="saving" class="w-4 h-4 border-2 border-white/60 border-t-transparent rounded-full animate-spin" />
+                  <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   {{ t('profile.save') }}
