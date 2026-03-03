@@ -17,8 +17,14 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/dashboard', '/auth/**', '/zh/dashboard', '/zh/auth/**'],
+    sitemaps: false,
+    exclude: [
+      '/dashboard', '/zh/dashboard',
+      '/login', '/zh/login',
+      '/auth/**', '/zh/auth/**',
+    ],
     autoLastmod: true,
+    discoverImages: false,
   },
 
   i18n: {
