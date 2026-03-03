@@ -45,8 +45,3 @@ All API requests require an API Key in the header:
 ```
 Authorization: Bearer wai_xxxxxxxxxxxxxxxx
 ```
-
-API Key is read from the `~/.whoamiagent` config file:
-```
-WHOAMI_API_KEY=wai_xxxxxxxxxxxxxxxx
-```
