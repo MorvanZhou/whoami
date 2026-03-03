@@ -24,6 +24,12 @@ const localePath = useLocalePath()
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
 
+      <!-- Terminal badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in-up">
+        <span class="w-2 h-2 rounded-full bg-success animate-pulse" />
+        <span class="text-xs font-mono text-gray-400">Works with OpenClaw · Cursor · Claude Code · Codex · Windsurf · Cline</span>
+      </div>
+
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-fade-in-up" style="animation-delay: 0.1s">
         <span class="text-th-text">{{ t('hero.title') }}</span>
         <br>
