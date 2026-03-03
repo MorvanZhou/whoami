@@ -24,7 +24,7 @@ User initiates conversation
     │
     ├─ Is ~/.whoamiagent configured?
     │   ├─ YES → Run `get` to read remote profile → Inject into context → Continue with task
-    │   └─ NO  → Script auto-opens browser login page → Agent tells user to log in and get API Key → **Agent STOPS and WAITS for user to reply with API Key or one-time URL** → Agent saves config to ~/.whoamiagent
+    │   └─ NO  → Script auto-opens browser login page → Agent tells user to log in and get one-time URL → **Agent STOPS and WAITS for user to provide one-time URL** → Agent downloads and saves to ~/.whoamiagent
     │
     ├─ User requests to update info?
     │   └─ YES → Organize into Markdown → Write to temp file → Run `update --file` to write to remote → Confirm success
@@ -35,34 +35,16 @@ User initiates conversation
 
 ## 1. Configure API Key (First Use)
 
-If not yet configured, simply running `get` or `setup` will auto-open the browser login page. After logging in, the user generates an API Key on the Dashboard.
+If not yet configured, simply running `get` or `setup` will auto-open the browser login page. After logging in, the user generates a one-time configuration URL on the Dashboard.
 
-The Dashboard provides a one-time URL (e.g., `https://whoamiagent.com/api/storeapi?token=<token>`) that contains the API configuration. The Agent can download this URL and save its content directly to `~/.whoamiagent`.
-
-Alternatively, if the user provides the API Key directly, run:
-
-```bash
-python3 <skill-dir>/scripts/whoami_profile.py setup wai_xxxxxxxxxxxxxxxx
-```
-
-Or use the one-time URL approach:
+The Dashboard provides a one-time URL (e.g., `https://whoamiagent.com/api/storeapi?token=<token>`) that contains the API configuration. To set up, download this URL and save its content directly to `~/.whoamiagent`:
 
 ```bash
 curl -s "https://whoamiagent.com/api/storeapi?token=<token>" > ~/.whoamiagent
 chmod 600 ~/.whoamiagent
 ```
 
-Or use interactive setup (also auto-opens browser):
-
-```bash
-python3 <skill-dir>/scripts/whoami_profile.py setup
-```
-
-Config file is saved at `~/.whoamiagent`, format:
-```
-WHOAMI_API_KEY=wai_xxxxxxxxxxxxxxxx
-WHOAMI_ENDPOINT=https://whoamiagent.com
-```
+Config file is saved at `~/.whoamiagent` with the necessary credentials securely configured.
 
 ## 2. Get User Profile
 
@@ -141,10 +123,9 @@ User says: "Do you know me?"
 Agent behavior:
 1. Run `whoami_profile.py get`
 2. If API Key is not configured, the script auto-opens the browser login page. Agent **MUST**:
-   - Tell the user: "I've opened the login page in your browser. Please log in, generate an API Key on the Dashboard, and paste it here."
-   - **STOP here and wait for the user to reply with the API Key or a one-time configuration URL. Do NOT run any other commands or take any further actions until the user responds.**
-   - If the user provides a one-time URL (e.g., `https://whoamiagent.com/api/storeapi?token=xxx`), download it and save the content to `~/.whoamiagent`
-   - If the user provides the API Key directly (starts with `wai_`), run `whoami_profile.py setup wai_xxx` to complete configuration
+   - Tell the user: "I've opened the login page in your browser. Please log in and generate a one-time configuration URL on the Dashboard."
+   - **STOP here and wait for the user to reply with the one-time configuration URL.**
+   - Download the URL and save to `~/.whoamiagent`: `curl -s "<provided-url>" > ~/.whoamiagent && chmod 600 ~/.whoamiagent`
    - Then run `whoami_profile.py get` again to fetch the profile
 3. If already configured, display profile summary
 
@@ -157,4 +138,4 @@ Agent behavior:
 5. **Profile max 5000 characters** — keep it concise, avoid redundant descriptions
 6. **<skill-dir>** refers to the directory path where this SKILL.md is located
 7. **Script uses only Python standard library**, zero third-party dependencies
-8. **When API Key is not configured, the agent MUST stop and wait for the user to respond.** Do not retry the command, do not run other whoami commands, and do not proceed with any actions. The user needs time to log in via browser, generate an API Key, and paste it back (or provide the one-time configuration URL). Only after the user provides the API Key or URL should the agent continue.
+8. **When API Key is not configured, use the one-time URL approach** — Agent receives one-time URL from user, downloads it directly to `~/.whoamiagent`, **never handles API Key directly**
