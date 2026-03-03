@@ -52,7 +52,8 @@
     "step2Title": "Or Install via Command",
     "step2Desc": "If you're a developer, you can install the agent skill directly:",
     "prompt": "Install a cross-AI agent user identity sync skill by running: npx skills add MorvanZhou/whoami. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.",
-    "copied": "Copied!"
+    "copied": "Copied!",
+    "introAlt": "How whoami works — your AI agent reads and updates your profile across all platforms"
   },
   "solutions": {
     "title": "How whoami solves it",

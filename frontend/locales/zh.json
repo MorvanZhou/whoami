@@ -52,7 +52,8 @@
     "step2Title": "或通过命令安装",
     "step2Desc": "如果你是开发者，可以直接运行命令安装 Agent Skill：",
     "prompt": "请安装一个跨 AI Agent 的用户身份同步 Skill，运行命令：npx skills add MorvanZhou/whoami。安装完毕后，请打开 https://whoamiagent.com/login?redirect=dashboard 让我注册或登录来获取 API Key。",
-    "copied": "已复制！"
+    "copied": "已复制！",
+    "introAlt": "whoami 使用方式 — AI agent 为你读取和更新跨平台身份档案"
   },
   "solutions": {
     "title": "whoami 如何解决",

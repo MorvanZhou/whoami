@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const introImage = computed(() =>
+  locale.value === 'zh' ? '/intro-zh.png' : '/intro-en.png'
+)
 </script>
 
 <template>
@@ -26,7 +30,7 @@ const { t } = useI18n()
       </div>
 
       <!-- Option B: Install via command (for developers) -->
-      <div>
+      <div class="mb-16">
         <h3 class="text-lg font-semibold text-th-text mb-2 flex items-center gap-2">
           <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent-light/20 text-accent-light text-sm font-bold font-mono">B</span>
           {{ t('install.step2Title') }}
@@ -40,6 +44,16 @@ const { t } = useI18n()
             prominent
           />
         </div>
+      </div>
+
+      <!-- Intro image -->
+      <div class="rounded-2xl overflow-hidden border border-th-text/[0.08] shadow-lg">
+        <img
+          :src="introImage"
+          :alt="t('install.introAlt')"
+          class="w-full h-auto"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>

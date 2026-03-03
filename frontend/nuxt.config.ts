@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 
   gtag: {
     id: 'G-NCNN3SLNCT',
+    enabled: process.env.NODE_ENV === 'production',
   },
 
   site: {
