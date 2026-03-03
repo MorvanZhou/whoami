@@ -38,7 +38,7 @@ const localePath = useLocalePath()
 
       <div class="animate-fade-in-up" style="animation-delay: 0.3s">
         <NuxtLink
-          :to="`${localePath('/login')}?redirect=dashboard`"
+          :to="`${localePath('/login')}`"
           class="relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white overflow-hidden group"
         >
           <span class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light" />
