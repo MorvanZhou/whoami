@@ -21,6 +21,7 @@
 **/*.pyc
 **/*.pyo
 **/uv.lock
+*.zip
 
 # OS
 **/.DS_Store
