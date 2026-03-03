@@ -4,7 +4,7 @@
 
 **Let every AI know who you are.**
 
-Tired of introducing yourself every time you start a new conversation with an AI? **whoami** solves that. Create one identity profile, and every AI agent you use — ChatGPT, Claude, Cursor, Windsurf, or any other — instantly knows your name, skills, preferences, and work style.
+Tired of introducing yourself every time you start a new conversation with an AI? **whoami** solves that. Create one identity profile, and every AI agent you use — Codex, Claude, Cursor, Windsurf, or any other — instantly knows your name, skills, preferences, and work style.
 
 No more repeating yourself. Just talk.
 
@@ -12,7 +12,7 @@ No more repeating yourself. Just talk.
 
 Ever run into these?
 
-- **Switch AI, lose identity** — You move from ChatGPT to Claude, and it has no idea who you are. You start introducing yourself all over again.
+- **Switch AI, lose identity** — You move from Codex to Claude, and it has no idea who you are. You start introducing yourself all over again.
 - **New chat, blank slate** — Even with the same AI, every new conversation starts from zero. Your context, preferences, and history — all gone.
 - **Can't edit what AI knows** — You want to update how AI sees you, but there's no easy way to manage your identity across platforms.
 
@@ -22,7 +22,7 @@ Ever run into these?
 
 ### Option A: Tell your AI agent (easiest)
 
-Just paste this to any AI agent (Cursor, Claude, ChatGPT, etc.):
+Just paste this to any AI agent (Cursor, Claude, Codex, etc.):
 
 ```
 Install a cross-AI agent user identity sync skill by running: `npx skills add MorvanZhou/whoami`. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.
@@ -74,7 +74,7 @@ whoami works with any AI agent that supports skill installation, including:
 - Cursor
 - Windsurf
 - Claude (via MCP or skills)
-- ChatGPT (via custom instructions)
+- Codex (via custom instructions)
 - And more...
 
 ## License

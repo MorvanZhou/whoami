@@ -19,7 +19,7 @@ const closeMenu = () => {
   <div class="min-h-screen bg-th-bg text-th-text font-sans" @click="closeMenu">
     <!-- Nav -->
     <nav class="fixed top-0 inset-x-0 z-50 border-b border-th-text/[var(--color-border-opacity)] bg-th-nav/80 backdrop-blur-xl">
-      <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+      <div class="mx-auto max-w-6xl px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <!-- Logo -->
         <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 group">
           <img src="/logo.png" alt="whoami" class="w-7 h-7" />
@@ -29,14 +29,14 @@ const closeMenu = () => {
         </NuxtLink>
 
         <!-- Right -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 sm:gap-3">
           <ThemeSwitcher />
           <LanguageSwitcher />
 
           <template v-if="isLoggedIn">
             <div class="relative" @click.stop>
               <button
-                class="flex items-center gap-2 rounded-lg px-3 py-1.5 hover:bg-th-bg-t transition-colors"
+                class="flex items-center gap-1.5 sm:gap-2 rounded-lg px-2 sm:px-3 py-1.5 hover:bg-th-bg-t transition-colors"
                 @click="showUserMenu = !showUserMenu"
               >
                 <img
@@ -84,7 +84,7 @@ const closeMenu = () => {
           <template v-else>
             <NuxtLink
               :to="localePath('/login')"
-              class="relative inline-flex items-center px-5 py-2 rounded-lg text-sm font-semibold text-white overflow-hidden group"
+              class="relative inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-white overflow-hidden group"
             >
               <span class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light group-hover:from-accent-light group-hover:to-accent transition-all duration-300" />
               <span class="relative">{{ t('nav.getStarted') }}</span>
@@ -95,7 +95,7 @@ const closeMenu = () => {
     </nav>
 
     <!-- Main -->
-    <main class="pt-16">
+    <main class="pt-14 sm:pt-16">
       <slot />
     </main>
 

@@ -4,6 +4,13 @@ const localePath = useLocalePath()
 const route = useRoute()
 const { isLoggedIn, fetchUser, token } = useAuth()
 
+useSeoMeta({
+  title: () => t('seo.login.title'),
+  description: () => t('seo.login.description'),
+  ogTitle: () => t('seo.login.title'),
+  ogDescription: () => t('seo.login.description'),
+})
+
 const rawRedirect = computed(() => (route.query.redirect as string) || '')
 const redirect = computed(() => rawRedirect.value.replace(/^\/+/, ''))
 const isFromAgent = computed(() => redirect.value === 'dashboard')

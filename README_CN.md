@@ -4,7 +4,7 @@
 
 **让每个 AI 都认识你。**
 
-是不是每次和新的 AI 对话，都要重新介绍一遍自己？**whoami** 帮你解决这个问题。只需创建一份身份档案，你使用的所有 AI 工具 —— ChatGPT、Claude、Cursor、Windsurf 等 —— 都能立刻了解你的名字、技能、偏好和工作风格。
+是不是每次和新的 AI 对话，都要重新介绍一遍自己？**whoami** 帮你解决这个问题。只需创建一份身份档案，你使用的所有 AI 工具 —— Codex、Claude、Cursor、Windsurf 等 —— 都能立刻了解你的名字、技能、偏好和工作风格。
 
 不用再重复自我介绍，直接开聊。
 
@@ -12,7 +12,7 @@
 
 你是否遇到过这些问题？
 
-- **换个 AI，它就不认识你了** —— 从 ChatGPT 切到 Claude，AI 完全不知道你是谁，又要重新自我介绍一遍。
+- **换个 AI，它就不认识你了** —— 从 Codex 切到 Claude，AI 完全不知道你是谁，又要重新自我介绍一遍。
 - **新对话，一切归零** —— 即使是同一个 AI，每次新建对话都从零开始。你的上下文、偏好、历史全部消失。
 - **改不了 AI 对你的认知** —— 你想让 AI 更了解你，但平台设置封闭，没有简单的方式管理你的 AI 身份。
 
@@ -22,7 +22,7 @@
 
 ### 方式 A：让 AI 帮你安装（最简单）
 
-把下面这段话发给你的 AI 助手（Cursor、Claude、ChatGPT 等）：
+把下面这段话发给你的 AI 助手（Cursor、Claude、Codex 等）：
 
 ```
 Install a cross-AI agent user identity sync skill by running: `npx skills add MorvanZhou/whoami`. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.
@@ -74,7 +74,7 @@ whoami 可以和任何支持 skill 安装的 AI 助手配合使用，包括：
 - Cursor
 - Windsurf
 - Claude（通过 MCP 或 skills）
-- ChatGPT（通过自定义指令）
+- Codex（通过自定义指令）
 - 更多...
 
 ## 开源协议

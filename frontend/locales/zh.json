@@ -1,4 +1,18 @@
 {
+  "seo": {
+    "home": {
+      "title": "whoami — 跨 AI 身份档案同步 | 支持 Cursor、Claude、Codex",
+      "description": "whoami 让每个 AI 都认识你。一份身份档案，自动同步到 Cursor、Claude、Codex 等所有 AI 工具。不再重复自我介绍。"
+    },
+    "login": {
+      "title": "登录 — whoami | 免费获取 AI 身份档案",
+      "description": "登录 whoami，免费获取 API Key。创建一份跨 Cursor、Claude、Codex 等所有 AI 工具同步的身份档案。"
+    },
+    "dashboard": {
+      "title": "控制台 — whoami | 管理 AI 身份档案与 API Key",
+      "description": "管理你的 AI 身份档案和 API 密钥。编辑档案、创建密钥，让所有 AI 都能读取同一个你。"
+    }
+  },
   "nav": {
     "home": "首页",
     "dashboard": "控制台",
@@ -17,7 +31,7 @@
     "subtitle": "whoami 帮你解决这些问题。",
     "switchAI": {
       "title": "换个 AI，它就不认识你了",
-      "desc": "从 ChatGPT 切到 Claude，AI 完全不知道你是谁。自我介绍，重新来过。",
+      "desc": "从 Codex 切到 Claude，AI 完全不知道你是谁。自我介绍，重新来过。",
       "label": "AI-A 认识你，AI-B 不认识"
     },
     "newChat": {
@@ -45,7 +59,7 @@
     "subtitle": "一份档案，所有 AI，始终同步。",
     "syncAll": {
       "title": "一份档案，全平台通用",
-      "desc": "在 whoami 写一次档案 —— Claude、ChatGPT、Cursor 等所有 AI 都能读取同一个你。"
+      "desc": "在 whoami 写一次档案 —— Claude、Codex、Cursor 等所有 AI 都能读取同一个你。"
     },
     "persist": {
       "title": "上下文永不丢失",
@@ -89,7 +103,7 @@
     "deleteConfirm": "确定要删除这个 Key 吗？此操作不可撤销。",
     "promptTitle": "下一步：配置你的 Agent",
     "promptDesc": "复制以下 Prompt 粘贴给你的 AI Agent：",
-    "promptText": "我已经成功获得了 whoami 的 API Key：{key}。请将这个 API Key 保存到 ~/.whoamiagent 文件中，格式如下：\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\n然后使用 whoami skill 来加载和管理我的身份档案。",
+    "promptText": "首先，请检查你是否已经安装了 whoami skill。如果没有安装，请运行 `npx skills add MorvanZhou/whoami` 来安装。\n然后将我的 API Key 保存到 ~/.whoamiagent 文件中，格式如下：\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\n最后，使用 whoami skill 来加载和管理我的身份档案。",
     "newKeyWarning": "请立即保存此密钥——之后将不再显示。",
     "keyLabel": "标签"
   },

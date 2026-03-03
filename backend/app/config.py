@@ -1,4 +1,8 @@
+import os
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_env_file = ".env.dev" if os.getenv("WHOAMI_ENV") == "dev" else ".env"
 
 
 class Settings(BaseSettings):
@@ -30,7 +34,7 @@ class Settings(BaseSettings):
     frontend_url: str = "https://whoamiagent.com"
     api_key_prefix: str = "wai_"
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(env_file=_env_file, env_file_encoding="utf-8")
 
 
 settings = Settings()

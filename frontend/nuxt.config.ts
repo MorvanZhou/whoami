@@ -5,10 +5,20 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/i18n',
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-gtag', '@nuxtjs/sitemap'],
+
+  gtag: {
+    id: 'G-NCNN3SLNCT',
+  },
+
+  site: {
+    url: 'https://whoamiagent.com',
+  },
+
+  sitemap: {
+    exclude: ['/dashboard', '/auth/**', '/zh/dashboard', '/zh/auth/**'],
+    autoLastmod: true,
+  },
 
   i18n: {
     locales: [
@@ -46,11 +56,26 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'whoami — Let every AI know who you are',
+      title: 'whoami — Persistent AI Identity Profile | Works with Cursor, Claude & Codex',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Cross-AI user identity profile sync service. One profile, every AI knows you.' },
+        { name: 'description', content: 'whoami gives every AI agent a persistent identity profile about you — synced across Cursor, Claude, Codex and more. One profile, every AI. Stop repeating yourself.' },
+        { name: 'msvalidate.01', content: 'A25A16143F8A52E0CC3FD76FE0E5F03B' },
+        // Open Graph
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'whoami' },
+        { property: 'og:title', content: 'whoami — Your Persistent Identity for Every AI Agent' },
+        { property: 'og:description', content: 'One profile that every AI agent can read. Works with Cursor, Claude, Codex. Stop repeating yourself.' },
+        { property: 'og:image', content: 'https://whoamiagent.com/og-image.png' },
+        { property: 'og:url', content: 'https://whoamiagent.com' },
+        // Twitter Card
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'whoami — Persistent AI Identity Profile' },
+        { name: 'twitter:description', content: 'Let every AI know who you are. One profile, synced across all your AI agents.' },
+        { name: 'twitter:image', content: 'https://whoamiagent.com/og-image.png' },
+        // SEO keywords
+        { name: 'keywords', content: 'AI agent memory, persistent user profile, cross-agent identity, AI identity sync, Cursor memory, Claude context, Codex memory, MCP skill, whoami' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
@@ -65,6 +90,25 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800&display=swap',
+        },
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            'name': 'whoami',
+            'description': 'Persistent AI identity profile that syncs across Cursor, Claude, Codex and all MCP-compatible AI agents.',
+            'applicationCategory': 'ProductivityApplication',
+            'operatingSystem': 'Web',
+            'url': 'https://whoamiagent.com',
+            'offers': {
+              '@type': 'Offer',
+              'price': '0',
+              'priceCurrency': 'USD',
+            },
+          }),
         },
       ],
     },

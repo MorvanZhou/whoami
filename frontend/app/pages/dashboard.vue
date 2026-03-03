@@ -6,6 +6,12 @@ definePageMeta({
 const { t } = useI18n()
 const { apiFetch } = useApi()
 
+useSeoMeta({
+  title: () => t('seo.dashboard.title'),
+  description: () => t('seo.dashboard.description'),
+  robots: 'noindex, nofollow',
+})
+
 interface ApiKeyItem {
   id: string
   key_prefix: string
