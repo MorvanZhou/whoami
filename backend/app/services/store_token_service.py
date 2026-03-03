@@ -2,7 +2,7 @@ import logging
 import secrets
 from datetime import datetime, timedelta, timezone
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.store_token import StoreApiToken
@@ -10,6 +10,19 @@ from app.models.store_token import StoreApiToken
 logger = logging.getLogger("whoami")
 
 TOKEN_EXPIRE_MINUTES = 15
+
+
+async def cleanup_expired_tokens(db: AsyncSession) -> int:
+    """Delete tokens that are used or expired. Returns count of deleted rows."""
+    cutoff = datetime.now(timezone.utc) - timedelta(minutes=TOKEN_EXPIRE_MINUTES)
+    result = await db.execute(
+        delete(StoreApiToken).where(
+            (StoreApiToken.is_used.is_(True)) | (StoreApiToken.created_at < cutoff)
+        )
+    )
+    await db.commit()
+    count: int = result.rowcount  # type: ignore[attr-defined]
+    return count
 
 
 def generate_store_token() -> str:

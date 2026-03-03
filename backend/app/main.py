@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from contextlib import asynccontextmanager
 from logging.handlers import TimedRotatingFileHandler
@@ -7,8 +8,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.database import init_db
+from app.database import async_session, init_db
 from app.routers import auth, cos, keys, profile, store_api, web_profile
+from app.services.store_token_service import cleanup_expired_tokens
+
+CLEANUP_INTERVAL_SECONDS = 3600  # 1 hour
 
 # Ensure logs directory exists
 LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
@@ -38,13 +42,31 @@ logging.basicConfig(
 )
 logger = logging.getLogger("whoami")
 
+# Suppress noisy COS SDK logs (e.g. NoSuchKey ERROR on new users)
+logging.getLogger("qcloud_cos").setLevel(logging.WARNING)
+
+
+async def _periodic_cleanup() -> None:
+    """Background task: clean up expired store_api_tokens every hour."""
+    while True:
+        await asyncio.sleep(CLEANUP_INTERVAL_SECONDS)
+        try:
+            async with async_session() as db:
+                deleted = await cleanup_expired_tokens(db)
+                if deleted:
+                    logger.info(f"[whoami] Cleaned up {deleted} expired store tokens")
+        except Exception as e:
+            logger.error(f"[whoami] Token cleanup error: {e}")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("[whoami] Starting up, initializing database...")
     await init_db()
     logger.info("[whoami] Database initialized")
+    cleanup_task = asyncio.create_task(_periodic_cleanup())
     yield
+    cleanup_task.cancel()
     logger.info("[whoami] Shutting down")
 
 

@@ -27,6 +27,8 @@ def _history_key(user_id: str, timestamp: str) -> str:
 
 def get_profile(user_id: str) -> str | None:
     client = _get_cos_client()
+    if not _profile_exists(client, user_id):
+        return None
     key = _profile_key(user_id)
     try:
         response = client.get_object(Bucket=settings.cos_bucket, Key=key)
@@ -57,11 +59,17 @@ def save_profile(user_id: str, content: str) -> None:
     _cleanup_history(client, user_id)
 
 
-def _backup_to_history(client: CosS3Client, user_id: str) -> None:
+def _profile_exists(client: CosS3Client, user_id: str) -> bool:
     key = _profile_key(user_id)
     try:
-        client.get_object(Bucket=settings.cos_bucket, Key=key)
+        client.head_object(Bucket=settings.cos_bucket, Key=key)
+        return True
     except Exception:
+        return False
+
+
+def _backup_to_history(client: CosS3Client, user_id: str) -> None:
+    if not _profile_exists(client, user_id):
         return  # No current profile to backup
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -72,7 +80,7 @@ def _backup_to_history(client: CosS3Client, user_id: str) -> None:
         Key=history_key,
         CopySource={
             "Bucket": settings.cos_bucket,
-            "Key": key,
+            "Key": _profile_key(user_id),
             "Region": settings.cos_region,
         },
     )
@@ -122,11 +130,13 @@ def get_history_profile(user_id: str, timestamp: str) -> str | None:
     client = _get_cos_client()
     key = _history_key(user_id, timestamp)
     try:
+        client.head_object(Bucket=settings.cos_bucket, Key=key)
+    except Exception:
+        return None
+    try:
         response = client.get_object(Bucket=settings.cos_bucket, Key=key)
         return response["Body"].get_raw_stream().read().decode("utf-8")
     except Exception as e:
-        if "NoSuchKey" in str(e):
-            return None
         logger.error(f"[whoami] COS get_history_profile error: {e}")
         raise
 
@@ -137,7 +147,7 @@ def rollback_profile(user_id: str, timestamp: str) -> bool:
 
     # Check history version exists
     try:
-        client.get_object(Bucket=settings.cos_bucket, Key=history_key)
+        client.head_object(Bucket=settings.cos_bucket, Key=history_key)
     except Exception:
         return False
 
