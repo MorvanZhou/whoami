@@ -1,7 +1,7 @@
 {
   "seo": {
     "home": {
-      "title": "whoami — Persistent AI Identity Profile | Cursor, Claude & Codex",
+      "title": "whoami — Cross-AI User Profile Sync | Cursor, Claude & Codex",
       "description": "whoami gives every AI agent a persistent identity profile about you — synced across Cursor, Claude, Codex and more. One profile, every AI. Stop repeating yourself."
     },
     "login": {
@@ -10,7 +10,7 @@
     },
     "dashboard": {
       "title": "Dashboard — whoami | Manage Your AI Identity Profile & API Keys",
-      "description": "Manage your persistent AI identity profile and API keys. Edit your profile, create keys, and sync your identity across all AI agents."
+      "description": "Manage your cross-AI user profile sync and API keys. Edit your profile, create keys, and sync your identity across all AI agents."
     }
   },
   "nav": {
