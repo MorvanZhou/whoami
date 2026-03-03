@@ -45,6 +45,8 @@ You ──→ Install whoami skill on your AI agent
          │
          ├─ Sign in at whoamiagent.com → Get API key
          │
+         ├─ Dashboard gives a one-time URL → AI downloads config automatically
+         │
          ├─ AI agent fetches your profile at conversation start
          │
          └─ You share new info → AI saves it → All AIs know it
@@ -52,8 +54,9 @@ You ──→ Install whoami skill on your AI agent
 
 1. **Install** — Add the whoami skill to your AI agent
 2. **Sign in** — Create an account at [whoamiagent.com](https://whoamiagent.com) and grab an API key
-3. **Talk** — Start any conversation. Your AI automatically loads your profile and knows who you are
-4. **Update** — Mention something new about yourself. Your AI saves it, and every AI agent you use learns it
+3. **Configure** — The dashboard provides a one-time URL for secure API key delivery. Your AI agent downloads it and saves the config automatically — no need to copy-paste keys manually
+4. **Talk** — Start any conversation. Your AI automatically loads your profile and knows who you are
+5. **Update** — Mention something new about yourself. Your AI saves it, and every AI agent you use learns it
 
 ## What Gets Saved?
 

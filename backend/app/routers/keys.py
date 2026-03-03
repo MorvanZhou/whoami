@@ -5,7 +5,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.database import get_db
 from app.deps import get_current_user
 from app.models.user import User
+from app.config import settings
 from app.services.key_service import create_api_key, list_api_keys, revoke_api_key
+from app.services.store_token_service import create_store_token
 
 router = APIRouter()
 
@@ -30,6 +32,7 @@ class CreateKeyResponse(BaseModel):
     key_suffix: str
     label: str | None
     created_at: str
+    store_url: str
 
 
 @router.post("", response_model=CreateKeyResponse, status_code=status.HTTP_201_CREATED)
@@ -39,6 +42,8 @@ async def create_key(
     db: AsyncSession = Depends(get_db),
 ):
     plain_key, api_key = await create_api_key(db, user.id, body.label)
+    token = await create_store_token(db, user.id, plain_key)
+    store_url = f"{settings.frontend_url}/api/storeapi?token={token}"
     return CreateKeyResponse(
         id=api_key.id,
         key=plain_key,
@@ -46,6 +51,7 @@ async def create_key(
         key_suffix=api_key.key_suffix,
         label=api_key.label,
         created_at=api_key.created_at.isoformat() if api_key.created_at else "",
+        store_url=store_url,
     )
 
 

@@ -45,6 +45,8 @@ npx skills add MorvanZhou/whoami
         │
         ├─ 在 whoamiagent.com 登录 → 获取 API Key
         │
+        ├─ 控制台提供一次性链接 → AI 自动下载配置
+        │
         ├─ AI 在对话开始时自动加载你的档案
         │
         └─ 你分享新信息 → AI 保存 → 所有 AI 都能看到
@@ -52,8 +54,9 @@ npx skills add MorvanZhou/whoami
 
 1. **安装** —— 把 whoami skill 添加到你的 AI 助手
 2. **登录** —— 在 [whoamiagent.com](https://whoamiagent.com) 注册账号，拿到 API Key
-3. **对话** —— 开始任意对话，AI 会自动加载你的档案，立刻了解你是谁
-4. **更新** —— 聊天中提到新的个人信息，AI 会自动保存，你的所有 AI 助手都能学到
+3. **配置** —— 控制台提供一次性安全链接，AI 助手自动下载并保存配置，无需手动复制粘贴密钥
+4. **对话** —— 开始任意对话，AI 会自动加载你的档案，立刻了解你是谁
+5. **更新** —— 聊天中提到新的个人信息，AI 会自动保存，你的所有 AI 助手都能学到
 
 ## 档案里写什么？
 

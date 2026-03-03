@@ -51,7 +51,7 @@
     "step1Desc": "将以下内容粘贴给任何 AI Agent，它会自动帮你完成安装和配置：",
     "step2Title": "或通过命令安装",
     "step2Desc": "如果你是开发者，可以直接运行命令安装 Agent Skill：",
-    "prompt": "请安装一个跨 AI Agent 的用户身份同步 Skill，运行命令：npx skills add MorvanZhou/whoami。安装完毕后，请打开 https://whoamiagent.com/login?redirect=dashboard 让我注册或登录来获取 API Key。",
+    "prompt": "运行 `npx skills add MorvanZhou/whoami -g --yes`。安装完毕后打开 https://whoamiagent.com/login?redirect=dashboard",
     "copied": "已复制！",
     "introAlt": "whoami 使用方式 — AI agent 为你读取和更新跨平台身份档案"
   },
@@ -104,7 +104,7 @@
     "deleteConfirm": "确定要删除这个 Key 吗？此操作不可撤销。",
     "promptTitle": "下一步：配置你的 Agent",
     "promptDesc": "复制以下 Prompt 粘贴给你的 AI Agent：",
-    "promptText": "首先，请检查你是否已经安装了 whoami skill。如果没有安装，请运行 `npx skills add MorvanZhou/whoami` 来安装。\n然后将我的 API Key 保存到 ~/.whoamiagent 文件中，格式如下：\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\n最后，使用 whoami skill 来加载和管理我的身份档案。",
+    "promptText": "请完成以下任务：\n1. 尝试执行 `npx skills add MorvanZhou/whoami` 安装 whoami skill。\n2. 下载 {storeApiUrl} 保存到 ~/.whoamiagent 文件。",
     "newKeyWarning": "请立即保存此密钥——之后将不再显示。",
     "keyLabel": "标签"
   },

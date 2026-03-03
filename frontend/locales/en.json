@@ -51,7 +51,7 @@
     "step1Desc": "Paste this to any AI agent and it will install and configure everything for you:",
     "step2Title": "Or Install via Command",
     "step2Desc": "If you're a developer, you can install the agent skill directly:",
-    "prompt": "Install a cross-AI agent user identity sync skill by running: npx skills add MorvanZhou/whoami. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.",
+    "prompt": "try run `npx skills add MorvanZhou/whoami -g --yes` to install a skill. Open https://whoamiagent.com/login?redirect=dashboard after installation.",
     "copied": "Copied!",
     "introAlt": "How whoami works — your AI agent reads and updates your profile across all platforms"
   },
@@ -104,7 +104,7 @@
     "deleteConfirm": "Are you sure you want to delete this key? This action cannot be undone.",
     "promptTitle": "Next Step: Configure Your Agent",
     "promptDesc": "Copy this prompt and paste it to your AI agent:",
-    "promptText": "First, check if you have the whoami skill installed. If not, install it by running: `npx skills add MorvanZhou/whoami`.\nThen save my API key to the ~/.whoamiagent file in the following format:\nWHOAMI_API_KEY={key}\nWHOAMI_ENDPOINT={endpoint}\nFinally, use the whoami skill to load and manage my profile.",
+    "promptText": "Please complete:\n1. Try run `npx skills add MorvanZhou/whoami -g --yes` to install a skill.\n2. Download {storeApiUrl} and save to the ~/.whoamiagent file.",
     "newKeyWarning": "Save this key now — it won't be shown again.",
     "keyLabel": "Label"
   },

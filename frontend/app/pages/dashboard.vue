@@ -23,6 +23,7 @@ interface ApiKeyItem {
 
 const keys = ref<ApiKeyItem[]>([])
 const newKey = ref<string | null>(null)
+const storeUrl = ref<string | null>(null)
 const loading = ref(false)
 const showCreate = ref(false)
 const newLabel = ref('')
@@ -47,11 +48,12 @@ const fetchKeys = async () => {
 
 const autoCreateKey = async () => {
   try {
-    const result = await apiFetch<{ id: string; key: string; key_prefix: string; key_suffix: string; label: string | null; created_at: string }>('/keys', {
+    const result = await apiFetch<{ id: string; key: string; key_prefix: string; key_suffix: string; label: string | null; created_at: string; store_url: string }>('/keys', {
       method: 'POST',
       body: { label: 'First Key' },
     })
     newKey.value = result.key
+    storeUrl.value = result.store_url
     keys.value = await apiFetch<ApiKeyItem[]>('/keys')
   } catch {
     // handle error
@@ -60,11 +62,12 @@ const autoCreateKey = async () => {
 
 const createKey = async () => {
   try {
-    const result = await apiFetch<{ id: string; key: string; key_prefix: string; key_suffix: string; label: string | null; created_at: string }>('/keys', {
+    const result = await apiFetch<{ id: string; key: string; key_prefix: string; key_suffix: string; label: string | null; created_at: string; store_url: string }>('/keys', {
       method: 'POST',
       body: { label: newLabel.value || null },
     })
     newKey.value = result.key
+    storeUrl.value = result.store_url
     showCreate.value = false
     newLabel.value = ''
     await fetchKeys()
@@ -82,7 +85,10 @@ const confirmDelete = async () => {
   try {
     await apiFetch(`/keys/${deleteTarget.value}`, { method: 'DELETE' })
     await fetchKeys()
-    if (newKey.value) newKey.value = null
+    if (newKey.value) {
+      newKey.value = null
+      storeUrl.value = null
+    }
   } catch {
     // handle error
   } finally {
@@ -92,17 +98,8 @@ const confirmDelete = async () => {
 
 onMounted(fetchKeys)
 
-const config = useRuntimeConfig()
-const endpoint = computed(() => {
-  const base = config.public.apiBase as string
-  if (base.startsWith('http')) {
-    return base.replace(/\/api\/?$/, '')
-  }
-  return window.location.origin
-})
-
 const promptText = computed(() => {
-  return t('dashboard.promptText', { key: newKey.value || '', endpoint: endpoint.value })
+  return t('dashboard.promptText', { storeApiUrl: storeUrl.value || '' })
 })
 </script>
 
