@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -11,6 +13,7 @@ from app.services.cos_service import (
     save_profile,
 )
 
+logger = logging.getLogger("whoami")
 router = APIRouter()
 
 # 限制 profile 最大 5000 字符（约 2000 中文字或 2000 英文单词）
@@ -34,6 +37,7 @@ class HistoryItem(BaseModel):
 @router.get("", response_model=ProfileResponse)
 async def get_user_profile(user: User = Depends(get_user_by_apikey)):
     content = get_profile(user.id)
+    logger.info("[whoami] api get_profile user=%s found=%s", user.id, content is not None)
     return ProfileResponse(content=content)
 
 
@@ -43,6 +47,7 @@ async def update_user_profile(
     user: User = Depends(get_user_by_apikey),
 ):
     save_profile(user.id, body.content)
+    logger.info("[whoami] api update_profile user=%s len=%d", user.id, len(body.content))
     return {"message": "Profile updated"}
 
 

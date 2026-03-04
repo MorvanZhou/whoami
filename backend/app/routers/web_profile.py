@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 
@@ -5,6 +7,7 @@ from app.deps import get_current_user
 from app.models.user import User
 from app.services.cos_service import get_profile, save_profile
 
+logger = logging.getLogger("whoami")
 router = APIRouter()
 
 PROFILE_MAX_LENGTH = 5000
