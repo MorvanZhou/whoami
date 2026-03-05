@@ -6,11 +6,11 @@
     },
     "login": {
       "title": "Sign in — whoami | Get Your Free AI Identity Profile",
-      "description": "Sign in to whoami to get your free API key. Create a persistent identity profile that works across Cursor, Claude, Codex and every MCP-compatible AI agent."
+      "description": "Sign in to whoami. Create a persistent identity profile that works across Cursor, Claude, Codex and every MCP-compatible AI agent."
     },
     "dashboard": {
-      "title": "Dashboard — whoami | Manage Your AI Identity Profile & API Keys",
-      "description": "Manage your cross-AI user profile sync and API keys. Edit your profile, create keys, and sync your identity across all AI agents."
+      "title": "Dashboard — whoami | Manage Your AI Identity Profile & Agents",
+      "description": "Manage your cross-AI user profile sync and agents. Edit your profile, create keys, and sync your identity across all AI agents."
     }
   },
   "nav": {
@@ -24,7 +24,7 @@
     "title": "Let every AI",
     "titleHighlight": "know who you are",
     "subtitle": "One profile. Every AI agent. No more repeating yourself.",
-    "cta": "Get Your API Key for FREE"
+    "cta": "Start for FREE"
   },
   "features": {
     "title": "Sound familiar?",
@@ -76,10 +76,10 @@
   },
   "login": {
     "title": "Sign in to whoami",
-    "subtitle": "Login to get your API key and manage your identity profile.",
+    "subtitle": "Login to manage your identity profile.",
     "github": "Continue with GitHub",
     "google": "Continue with Google",
-    "note": "Sign in to get your API key for free",
+    "note": "Sign in to start for free",
     "aiContext": {
       "badge": "This is opened by your AI Agent",
       "title": "Your AI is using the whoami skill",
@@ -107,7 +107,7 @@
     "unlinkAction": "Unlink",
     "promptTitle": "Next Step: Copy following prompt to your AI",
     "promptDesc": "Paste this prompt and let your AI do the rest. Please finish this step within {time}.",
-    "promptText": "Please complete:\n1. Try run `npx skills add MorvanZhou/whoami -g --yes` to install a skill.\n2. Download {storeApiUrl} and save to the ~/.whoamiagent file.\n3. Use whoami skill to sync your profile.",
+    "promptText": "Please complete:\n1. Try run `npx skills add MorvanZhou/whoami -g --yes` to install a skill.\n2. Download {storeKeyUrl} and save to the ~/.whoamiagent file.\n3. Use whoami skill to sync your profile.",
     "tokenExpired": "Token expired. Please create a new agent to try again.",
     "setupComplete": "All set! Your agent is configured and ready to use the whoami skill to sync your profile.",
     "setupCompleteTitle": "Setup Complete"

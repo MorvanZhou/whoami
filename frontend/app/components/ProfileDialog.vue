@@ -10,7 +10,7 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
-const { apiFetch } = useApi()
+const { fetchData } = useRequest()
 
 const profileContent = ref('')
 const originalContent = ref('')
@@ -34,7 +34,7 @@ const fetchProfile = async () => {
   saveMessage.value = ''
   saveError.value = ''
   try {
-    const result = await apiFetch<{ content: string | null }>('/web/profile')
+    const result = await fetchData<{ content: string | null }>('/web/profile')
     profileContent.value = result.content || ''
     originalContent.value = profileContent.value
   } catch {
@@ -50,7 +50,7 @@ const saveProfile = async () => {
   saveMessage.value = ''
   saveError.value = ''
   try {
-    await apiFetch('/web/profile', {
+    await fetchData('/web/profile', {
       method: 'POST',
       body: { content: profileContent.value },
     })

@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const { t } = useI18n()
-const { apiFetch } = useApi()
+const { fetchData } = useRequest()
 
 useSeoMeta({
   title: () => t('seo.dashboard.title'),
@@ -12,7 +12,7 @@ useSeoMeta({
   robots: 'noindex, nofollow',
 })
 
-interface ApiKeyItem {
+interface AccessKeyItem {
   id: string
   key_prefix: string
   key_suffix: string
@@ -21,7 +21,7 @@ interface ApiKeyItem {
   last_used: string | null
 }
 
-const keys = ref<ApiKeyItem[]>([])
+const keys = ref<AccessKeyItem[]>([])
 const storeUrl = ref<string | null>(null)
 const showPromptGuide = ref(false)
 const setupCompleted = ref(false)
@@ -60,7 +60,7 @@ const startCountdownAndPolling = (expiresIn: number, keyId: string) => {
   pollTimer = setInterval(async () => {
     if (!pendingKeyId.value) return
     try {
-      const res = await apiFetch<{ configured: boolean }>(`/keys/${pendingKeyId.value}/status`)
+      const res = await fetchData<{ configured: boolean }>(`/keys/${pendingKeyId.value}/status`)
       if (res.configured) {
         stopCountdownAndPolling()
         showPromptGuide.value = false
@@ -81,7 +81,7 @@ const stopCountdownAndPolling = () => {
 const fetchKeys = async () => {
   loading.value = true
   try {
-    keys.value = await apiFetch<ApiKeyItem[]>('/keys')
+    keys.value = await fetchData<AccessKeyItem[]>('/keys')
     if (isInitialLoad.value && keys.value.length === 0) {
       await autoCreateKey()
     }
@@ -95,14 +95,14 @@ const fetchKeys = async () => {
 
 const autoCreateKey = async () => {
   try {
-    const result = await apiFetch<{ id: string; store_url: string; expires_in: number }>('/keys', {
+    const result = await fetchData<{ id: string; store_url: string; expires_in: number }>('/keys', {
       method: 'POST',
       body: { label: 'My First Agent' },
     })
     showPromptGuide.value = true
     storeUrl.value = result.store_url
     startCountdownAndPolling(result.expires_in, result.id)
-    keys.value = await apiFetch<ApiKeyItem[]>('/keys')
+    keys.value = await fetchData<AccessKeyItem[]>('/keys')
   } catch {
     // handle error
   }
@@ -115,7 +115,7 @@ const createKey = async () => {
   }
   labelError.value = false
   try {
-    const result = await apiFetch<{ id: string; store_url: string; expires_in: number }>('/keys', {
+    const result = await fetchData<{ id: string; store_url: string; expires_in: number }>('/keys', {
       method: 'POST',
       body: { label: newLabel.value.trim() },
     })
@@ -137,7 +137,7 @@ const deleteKey = (id: string) => {
 const confirmDelete = async () => {
   if (!deleteTarget.value) return
   try {
-    await apiFetch(`/keys/${deleteTarget.value}`, { method: 'DELETE' })
+    await fetchData(`/keys/${deleteTarget.value}`, { method: 'DELETE' })
     await fetchKeys()
     if (showPromptGuide.value) {
       showPromptGuide.value = false
@@ -156,7 +156,7 @@ onMounted(fetchKeys)
 onUnmounted(stopCountdownAndPolling)
 
 const promptText = computed(() => {
-  return t('dashboard.promptText', { storeApiUrl: storeUrl.value || '' })
+  return t('dashboard.promptText', { storeKeyUrl: storeUrl.value || '' })
 })
 </script>
 
@@ -317,7 +317,7 @@ const promptText = computed(() => {
             {{ t('dashboard.noAgents') }}
           </div>
           <template v-else>
-            <ApiKeyCard
+            <AccessKeyCard
               v-for="key in keys"
               :key="key.id"
               :id="key.id"

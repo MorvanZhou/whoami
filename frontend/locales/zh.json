@@ -6,11 +6,11 @@
     },
     "login": {
       "title": "登录 — whoami | 免费获取 AI 身份档案",
-      "description": "登录 whoami，免费获取 API Key。创建一份跨 Cursor、Claude、Codex 等所有 AI 工具同步的身份档案。"
+      "description": "登录 whoami。创建一份跨 Cursor、Claude、Codex 等所有 AI 工具同步的身份档案。"
     },
     "dashboard": {
-      "title": "控制台 — whoami | 管理 AI 身份档案与 API Key",
-      "description": "管理你的 AI 身份档案和 API 密钥。编辑档案、创建密钥，让所有 AI 都能读取同一个你。"
+      "title": "控制台 — whoami | 管理 AI 身份档案与 Agents",
+      "description": "管理你的 AI 身份档案和 Agents。编辑档案、创建密钥，让所有 AI 都能读取同一个你。"
     }
   },
   "nav": {
@@ -24,7 +24,7 @@
     "title": "让每个 AI",
     "titleHighlight": "都认识你",
     "subtitle": "一份档案，所有 AI 都能读取。不再重复自我介绍。",
-    "cta": "免费获取 API Key"
+    "cta": "马上开始体验"
   },
   "features": {
     "title": "你是否也遇到过？",
@@ -76,10 +76,10 @@
   },
   "login": {
     "title": "登录 whoami",
-    "subtitle": "登录以获取 API Key 并管理你的身份档案。",
+    "subtitle": "登录以管理你的身份档案。",
     "github": "使用 GitHub 登录",
     "google": "使用 Google 登录",
-    "note": "登录后即可免费获取 API Key",
+    "note": "登录后即可免费体验",
     "aiContext": {
       "badge": "此页面由你的 AI Agent 打开",
       "title": "你的 AI 正在使用 whoami skill",
@@ -107,7 +107,7 @@
     "unlinkAction": "取消关联",
     "promptTitle": "下一步：复制下方提示词给你的 AI",
     "promptDesc": "复制提示词，然后让你的 AI 处理剩下的工作。请在 {time} 之内完成。",
-    "promptText": "请完成以下任务：\n1. 尝试执行 `npx skills add MorvanZhou/whoami` 安装 whoami skill。\n2. 下载 {storeApiUrl} 保存到 ~/.whoamiagent 文件。\n3. 用 whoami skill 获取你的用户档案。",
+    "promptText": "请完成以下任务：\n1. 尝试执行 `npx skills add MorvanZhou/whoami` 安装 whoami skill。\n2. 下载 {storeKeyUrl} 保存到 ~/.whoamiagent 文件。\n3. 用 whoami skill 获取你的用户档案。",
     "tokenExpired": "Token 已过期，请重新创建 Agent 再试。",
     "setupComplete": "配置完成！你的 Agent 已经准备好了，现在可以使用 whoami 技能来同步你的用户档案了。",
     "setupCompleteTitle": "配置完成"

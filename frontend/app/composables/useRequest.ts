@@ -1,8 +1,8 @@
-export const useApi = () => {
+export const useRequest = () => {
   const config = useRuntimeConfig()
   const token = useCookie('whoami_token')
 
-  const apiFetch = <T>(path: string, options: Record<string, any> = {}) => {
+  const fetchData = <T>(path: string, options: Record<string, any> = {}) => {
     const headers: Record<string, string> = {
       ...((options.headers as Record<string, string>) || {}),
     }
@@ -15,5 +15,5 @@ export const useApi = () => {
     })
   }
 
-  return { apiFetch }
+  return { fetchData }
 }
