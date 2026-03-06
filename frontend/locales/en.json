@@ -24,7 +24,18 @@
     "title": "Let every AI",
     "titleHighlight": "know who you are",
     "subtitle": "One profile. Every AI agent. No more repeating yourself.",
-    "cta": "Start for FREE"
+    "cta": "Start for FREE",
+    "demo": {
+      "user1": "Build me a shopping app based on my background.",
+      "agent1": "Let me fetch your profile with the whoami skill first.",
+      "skillRead": "Reading your profile…",
+      "agent2": "Got it — here's a plan tailored to your stack and preferences…",
+      "laterLabel": "after several rounds",
+      "user2": "Save my project preferences to my profile.",
+      "agent3": "Sure, let me update your whoami profile.",
+      "skillWrite": "Updating profile…",
+      "agent4": "Done — your other AIs can now access the latest preferences."
+    }
   },
   "features": {
     "title": "Sound familiar?",
