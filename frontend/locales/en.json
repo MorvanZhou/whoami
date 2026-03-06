@@ -26,12 +26,12 @@
     "subtitle": "One profile. Every AI agent. No more repeating yourself.",
     "cta": "Start for FREE",
     "demo": {
-      "user1": "Build me a shopping app based on my background.",
+      "user1": "Build me a shopping app {'@'}whoami",
       "agent1": "Let me fetch your profile with the whoami skill first.",
       "skillRead": "Reading your profile…",
       "agent2": "Got it — here's a plan tailored to your stack and preferences…",
       "laterLabel": "after several rounds",
-      "user2": "Save my project preferences to my profile.",
+      "user2": "Save my project preferences to my profile {'@'}whoami",
       "agent3": "Sure, let me update your whoami profile.",
       "skillWrite": "Updating profile…",
       "agent4": "Done — your other AIs can now access the latest preferences."

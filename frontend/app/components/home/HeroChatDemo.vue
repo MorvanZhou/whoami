@@ -136,7 +136,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full max-w-md mx-auto lg:mx-0">
+  <div class="w-full max-w-md mx-auto lg:mx-0 font-system">
     <!-- Window chrome -->
     <div class="rounded-2xl border border-th-text/[0.08] bg-th-bg-s/80 backdrop-blur-md shadow-2xl shadow-accent/5 overflow-hidden">
       <!-- Title bar -->
@@ -243,6 +243,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.font-system {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
