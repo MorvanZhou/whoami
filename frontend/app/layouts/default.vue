@@ -7,7 +7,9 @@ const showUserMenu = ref(false)
 
 onMounted(async () => {
   initSystemListener()
-  await fetchUser()
+  if (!user.value) {
+    await fetchUser()
+  }
 })
 
 const closeMenu = () => {

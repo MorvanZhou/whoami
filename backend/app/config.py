@@ -6,6 +6,9 @@ _env_file = ".env.dev" if os.getenv("WHOAMI_ENV") == "dev" else ".env"
 
 
 class Settings(BaseSettings):
+    # Environment: "dev" or "prod"
+    env: str = "prod"
+
     # Database
     database_url: str = "sqlite+aiosqlite:///./whoami.db"
 
@@ -28,7 +31,7 @@ class Settings(BaseSettings):
     cos_secret_id: str = ""
     cos_secret_key: str = ""
     cos_region: str = "ap-hongkong"
-    cos_bucket: str = "whoamiagent-1258395282"
+    cos_bucket: str = "whoamiagent-xxx"
 
     # General
     frontend_url: str = "https://whoamiagent.com"

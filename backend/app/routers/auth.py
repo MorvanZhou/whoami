@@ -2,6 +2,7 @@ import logging
 import secrets
 
 from authlib.integrations.httpx_client import AsyncOAuth2Client
+from cachetools import TTLCache
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -9,14 +10,18 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import settings
 from app.database import get_db
 from app.deps import get_current_user
+from app.limiter import limiter
 from app.models.user import User
 from app.services.auth_service import create_jwt_token, find_or_create_user
 
 logger = logging.getLogger("whoami")
 router = APIRouter()
 
-# In-memory state store for OAuth CSRF protection
-_oauth_states: dict[str, str] = {}
+# In-memory state store for OAuth CSRF protection (TTL 10 min, max 10k entries)
+_oauth_states: TTLCache[str, str] = TTLCache(maxsize=10000, ttl=600)
+
+# Whitelist of allowed redirect paths after OAuth callback
+ALLOWED_REDIRECTS = {"/dashboard", "/settings", "/keys"}
 
 GITHUB_AUTHORIZE_URL = "https://github.com/login/oauth/authorize"
 GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token"
@@ -29,6 +34,7 @@ GOOGLE_USERINFO_URL = "https://www.googleapis.com/oauth2/v2/userinfo"
 
 
 @router.get("/github/login")
+@limiter.limit("5/minute")
 async def github_login(request: Request, redirect: str | None = None):
     state = secrets.token_urlsafe(32)
     # Encode redirect target in state
@@ -84,14 +90,30 @@ async def github_callback(
     )
 
     jwt_token = create_jwt_token(user.id)
-    redirect_url = f"{settings.frontend_url}/auth/callback?token={jwt_token}"
-    if redirect_target:
-        redirect_url += f"&redirect={redirect_target}"
 
-    return RedirectResponse(url=redirect_url)
+    # Validate redirect target against whitelist
+    if redirect_target and redirect_target not in ALLOWED_REDIRECTS:
+        redirect_target = ""
+
+    redirect_url = f"{settings.frontend_url}/auth/callback"
+    if redirect_target:
+        redirect_url += f"?redirect={redirect_target}"
+
+    response = RedirectResponse(url=redirect_url)
+    response.set_cookie(
+        key="access_token",
+        value=jwt_token,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        max_age=settings.jwt_expire_days * 86400,
+        path="/",
+    )
+    return response
 
 
 @router.get("/google/login")
+@limiter.limit("5/minute")
 async def google_login(request: Request, redirect: str | None = None):
     state = secrets.token_urlsafe(32)
     state_value = redirect or ""
@@ -143,11 +165,26 @@ async def google_callback(
     )
 
     jwt_token = create_jwt_token(user.id)
-    redirect_url = f"{settings.frontend_url}/auth/callback?token={jwt_token}"
-    if redirect_target:
-        redirect_url += f"&redirect={redirect_target}"
 
-    return RedirectResponse(url=redirect_url)
+    # Validate redirect target against whitelist
+    if redirect_target and redirect_target not in ALLOWED_REDIRECTS:
+        redirect_target = ""
+
+    redirect_url = f"{settings.frontend_url}/auth/callback"
+    if redirect_target:
+        redirect_url += f"?redirect={redirect_target}"
+
+    response = RedirectResponse(url=redirect_url)
+    response.set_cookie(
+        key="access_token",
+        value=jwt_token,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        max_age=settings.jwt_expire_days * 86400,
+        path="/",
+    )
+    return response
 
 
 @router.get("/me")

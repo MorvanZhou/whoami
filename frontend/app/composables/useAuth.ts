@@ -8,27 +8,31 @@ interface User {
 }
 
 export const useAuth = () => {
-  const token = useCookie('whoami_token', { maxAge: 60 * 60 * 24 * 7 })
   const user = useState<User | null>('auth_user', () => null)
   const loading = useState('auth_loading', () => false)
   const config = useRuntimeConfig()
 
-  const isLoggedIn = computed(() => !!token.value && !!user.value)
+  const isLoggedIn = computed(() => !!user.value)
 
-  const fetchUser = async () => {
-    if (!token.value) return
-    loading.value = true
-    try {
-      const data = await $fetch<User>(`${config.public.apiBase}/auth/me`, {
-        headers: { Authorization: `Bearer ${token.value}` },
-      })
-      user.value = data
-    } catch {
-      token.value = null
-      user.value = null
-    } finally {
-      loading.value = false
-    }
+  let _fetchPromise: Promise<void> | null = null
+
+  const fetchUser = () => {
+    if (_fetchPromise) return _fetchPromise
+    _fetchPromise = (async () => {
+      loading.value = true
+      try {
+        const data = await $fetch<User>(`${config.public.apiBase}/auth/me`, {
+          credentials: 'include',
+        })
+        user.value = data
+      } catch {
+        user.value = null
+      } finally {
+        loading.value = false
+        _fetchPromise = null
+      }
+    })()
+    return _fetchPromise
   }
 
   const login = (provider: 'github' | 'google', redirect?: string) => {
@@ -37,33 +41,26 @@ export const useAuth = () => {
     window.location.href = `${config.public.apiBase}/auth/${provider}/login?${params.toString()}`
   }
 
-  const setToken = (newToken: string) => {
-    token.value = newToken
-  }
-
   const logout = async () => {
     const localePath = useLocalePath()
     try {
       await $fetch(`${config.public.apiBase}/auth/logout`, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${token.value}` },
+        credentials: 'include',
       })
     } catch {
       // ignore
     }
-    token.value = null
     user.value = null
     navigateTo(localePath('/'))
   }
 
   return {
-    token: readonly(token),
     user: readonly(user),
     loading: readonly(loading),
     isLoggedIn,
     fetchUser,
     login,
-    setToken,
     logout,
   }
 }

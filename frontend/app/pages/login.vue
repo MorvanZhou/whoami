@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
-const { isLoggedIn, fetchUser, token } = useAuth()
+const { isLoggedIn, fetchUser } = useAuth()
 
 useSeoMeta({
   title: () => t('seo.login.title'),
@@ -16,7 +16,7 @@ const redirect = computed(() => rawRedirect.value.replace(/^\/+/, ''))
 const isFromAgent = computed(() => redirect.value === 'dashboard')
 
 onMounted(async () => {
-  if (token.value && !isLoggedIn.value) {
+  if (!isLoggedIn.value) {
     await fetchUser()
   }
 })

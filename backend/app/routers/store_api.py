@@ -1,16 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.responses import PlainTextResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import settings
 from app.database import get_db
+from app.limiter import limiter
 from app.services.store_token_service import consume_store_token
 
 router = APIRouter()
 
 
 @router.get("", response_class=PlainTextResponse)
+@limiter.limit("10/minute")
 async def get_store_api(
+    request: Request,
     token: str,
     db: AsyncSession = Depends(get_db),
 ) -> str:

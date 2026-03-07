@@ -46,7 +46,11 @@ async def create_store_token(
 
 
 async def consume_store_token(db: AsyncSession, token: str) -> str | None:
-    """Consume a one-time store token. Returns the plain API key or None."""
+    """Consume a one-time store token. Returns the plain API key or None.
+
+    The token record is deleted immediately after consumption to avoid
+    persisting plaintext API keys in the database.
+    """
     result = await db.execute(
         select(StoreApiToken).where(
             StoreApiToken.token == token,
@@ -64,20 +68,28 @@ async def consume_store_token(db: AsyncSession, token: str) -> str | None:
     expire_time = created_at + timedelta(minutes=TOKEN_EXPIRE_MINUTES)
     now = datetime.now(timezone.utc)
     if now > expire_time:
-        store_token.is_used = True
+        # Expired — delete the record entirely
+        user_id = store_token.user_id
+        await db.delete(store_token)
         await db.commit()
-        logger.info(f"[whoami] Store token expired: {token[:8]}...")
+        logger.info(f"[whoami] Store token expired and deleted: {token[:8]}...")
         return None
 
-    # Mark as used
-    store_token.is_used = True
+    # Extract the plain key, then delete the record
+    plain_key = store_token.api_key_plain
+    user_id = store_token.user_id
+    await db.delete(store_token)
     await db.commit()
-    logger.info(f"[whoami] Store token consumed for user {store_token.user_id}")
-    return store_token.api_key_plain
+    logger.info(f"[whoami] Store token consumed and deleted for user {user_id}")
+    return plain_key
 
 
 async def is_store_token_consumed(db: AsyncSession, api_key_id: str, user_id: str) -> bool:
-    """Check if the store token associated with an api_key_id has been consumed."""
+    """Check if the store token associated with an api_key_id has been consumed.
+
+    Since consumed tokens are now deleted, absence of a record means consumed.
+    A record that still exists means it has NOT yet been consumed.
+    """
     result = await db.execute(
         select(StoreApiToken).where(
             StoreApiToken.api_key_id == api_key_id,
@@ -85,6 +97,7 @@ async def is_store_token_consumed(db: AsyncSession, api_key_id: str, user_id: st
         )
     )
     store_token = result.scalar_one_or_none()
+    # No record found => it was consumed (deleted) or never existed
     if not store_token:
-        return False
-    return store_token.is_used
+        return True
+    return False

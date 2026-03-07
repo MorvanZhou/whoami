@@ -4,11 +4,14 @@ from contextlib import asynccontextmanager
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from slowapi.errors import RateLimitExceeded
 
 from app.config import settings
 from app.database import async_session, init_db
+from app.limiter import limiter
 from app.routers import auth, cos, keys, profile, store_api, web_profile
 from app.services.store_token_service import cleanup_expired_tokens
 
@@ -76,7 +79,22 @@ app = FastAPI(
     version="0.1.0",
     lifespan=lifespan,
     root_path="/api",
+    # Disable docs in production
+    docs_url="/docs" if settings.env == "dev" else None,
+    redoc_url="/redoc" if settings.env == "dev" else None,
+    openapi_url="/openapi.json" if settings.env == "dev" else None,
 )
+
+# --- Rate limiter ---
+app.state.limiter = limiter
+
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    return JSONResponse(
+        status_code=429,
+        content={"detail": "Rate limit exceeded. Please try again later."},
+    )
 
 app.add_middleware(
     CORSMiddleware,

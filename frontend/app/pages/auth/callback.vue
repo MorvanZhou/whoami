@@ -1,24 +1,23 @@
 <script setup lang="ts">
 const route = useRoute()
-const { setToken, fetchUser } = useAuth()
+const { fetchUser } = useAuth()
 const { t } = useI18n()
 const localePath = useLocalePath()
 
 const error = ref(false)
 
 onMounted(async () => {
-  const token = route.query.token as string
   const rawRedirect = (route.query.redirect as string) || '/dashboard'
   const redirect = rawRedirect.startsWith('/') ? rawRedirect : `/${rawRedirect}`
 
-  if (!token) {
+  try {
+    // JWT is now set as HttpOnly cookie by the backend callback;
+    // just fetch user to validate the session.
+    await fetchUser()
+    navigateTo(localePath(redirect))
+  } catch {
     error.value = true
-    return
   }
-
-  setToken(token)
-  await fetchUser()
-  navigateTo(localePath(redirect))
 })
 </script>
 
