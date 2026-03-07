@@ -50,7 +50,6 @@ provider:
 
 - OAuth state 参数防 CSRF
 - JWT HttpOnly cookie，7 天过期
-- COS STS 临时密钥限定 `profiles/{user_id}/*` 路径
 - CORS 仅允许 `whoamiagent.com`
 
 ## 前端规范（Nuxt 4 / Vue 3 / TypeScript）
@@ -90,17 +89,3 @@ provider:
 - 远端 endpoint 默认：`https://whoamiagent.com`
 - 脚本兼容 python 3.8 的语法使用
 - 使用 英文 来编写 SKILL.md 和 references/*.md
-
-## COS 存储
-
-- 桶：`whoamiagent-1258395282`
-- 区域：`ap-hongkong`
-- Profile 路径：`profiles/{user_id}/current.md`
-- 历史路径：`profiles/{user_id}/history/{timestamp}.md`
-- 每用户最多保留 3 份历史 profile
-
-## Git 约定
-
-- `.env` 文件不提交，提供 `.env.example` 模板
-- `whoami.db` 不提交
-- `node_modules/`、`__pycache__/`、`.nuxt/` 不提交
