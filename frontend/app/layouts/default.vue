@@ -20,7 +20,7 @@ const closeMenu = () => {
 <template>
   <div class="min-h-screen bg-th-bg text-th-text font-sans" @click="closeMenu">
     <!-- Nav -->
-    <nav class="fixed top-0 inset-x-0 z-50 border-b border-th-text/[var(--color-border-opacity)] bg-th-nav/80 backdrop-blur-xl">
+    <nav aria-label="Main navigation" class="fixed top-0 inset-x-0 z-50 border-b border-th-text/[var(--color-border-opacity)] bg-th-nav/80 backdrop-blur-xl">
       <div class="mx-auto max-w-6xl px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <!-- Logo -->
         <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 group">
@@ -102,11 +102,11 @@ const closeMenu = () => {
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-th-text/[var(--color-footer-border-opacity)] py-8 mt-20">
+    <footer aria-label="Site footer" class="border-t border-th-text/[var(--color-footer-border-opacity)] py-8 mt-20">
       <div class="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-th-text-t">
         <span>{{ t('footer.rights', { year: new Date().getFullYear() }) }}</span>
         <div class="flex items-center gap-6">
-          <a href="https://github.com/MorvanZhou/whoami" target="_blank" rel="noopener" class="hover:text-th-text-s transition-colors">
+          <a href="https://github.com/MorvanZhou/whoami" target="_blank" rel="noopener noreferrer" class="hover:text-th-text-s transition-colors">
             {{ t('footer.github') }}
           </a>
         </div>

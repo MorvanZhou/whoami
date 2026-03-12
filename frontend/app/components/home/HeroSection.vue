@@ -46,7 +46,7 @@ const localePath = useLocalePath()
             </span>
           </h1>
 
-          <p class="text-lg sm:text-xl text-th-text-s max-w-xl mx-auto lg:mx-0 mb-10 animate-fade-in-up" style="animation-delay: 0.2s">
+          <p class="hero-subtitle text-lg sm:text-xl text-th-text-s max-w-xl mx-auto lg:mx-0 mb-10 animate-fade-in-up" style="animation-delay: 0.2s">
             {{ t('hero.subtitle') }}
           </p>
 

@@ -29,7 +29,7 @@ const cases = computed(() => [
 <template>
   <section class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center text-th-text mb-4">
+      <h2 class="features-title text-3xl sm:text-4xl font-bold text-center text-th-text mb-4">
         {{ t('features.title') }}
       </h2>
       <p class="text-center text-th-text-s mb-16 max-w-2xl mx-auto">
