@@ -73,6 +73,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'whoami gives every AI agent a persistent identity profile about you — synced across Cursor, Claude, Codex and more. One profile, every AI. Stop repeating yourself.' },
         { name: 'msvalidate.01', content: 'A25A16143F8A52E0CC3FD76FE0E5F03B' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
+        { name: 'referrer', content: 'no-referrer-when-downgrade' },
         // Open Graph
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'whoami' },
