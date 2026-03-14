@@ -106,6 +106,12 @@ const closeMenu = () => {
       <div class="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-th-text-t">
         <span>{{ t('footer.rights', { year: new Date().getFullYear() }) }}</span>
         <div class="flex items-center gap-6">
+          <NuxtLink :to="localePath('/terms')" class="hover:text-th-text-s transition-colors">
+            {{ t('footer.terms') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/privacy')" class="hover:text-th-text-s transition-colors">
+            {{ t('footer.privacy') }}
+          </NuxtLink>
           <a href="https://github.com/MorvanZhou/whoami" target="_blank" rel="noopener noreferrer" class="hover:text-th-text-s transition-colors">
             {{ t('footer.github') }}
           </a>

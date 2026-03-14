@@ -1,16 +1,24 @@
 {
   "seo": {
     "home": {
-      "title": "whoami — Cross-AI User Profile Sync | Cursor, Claude & Codex",
-      "description": "whoami gives every AI agent a persistent identity profile about you — synced across Cursor, Claude, Codex and more. One profile, every AI. Stop repeating yourself."
+      "title": "whoami — Persistent AI Identity for Claude, Cursor & Codex | Free AI Agent Memory",
+      "description": "Make every AI remember who you are. whoami syncs your identity across Claude, Cursor, Codex, Windsurf & all MCP agents. One profile, every AI. Free & open source."
     },
     "login": {
-      "title": "Sign in — whoami | Get Your Free AI Identity Profile",
-      "description": "Sign in to whoami. Create a persistent identity profile that works across Cursor, Claude, Codex and every MCP-compatible AI agent."
+      "title": "Sign in — whoami | Create Your Free AI Identity Profile",
+      "description": "Sign in to whoami and create a persistent AI identity profile. Works with Claude, Cursor, Codex and every MCP-compatible AI agent. Free to use."
     },
     "dashboard": {
       "title": "Dashboard — whoami | Manage Your AI Identity Profile & Agents",
-      "description": "Manage your cross-AI user profile sync and agents. Edit your profile, create keys, and sync your identity across all AI agents."
+      "description": "Manage your cross-AI user profile and connected agents. Edit your identity, create access keys, and sync across Claude, Cursor, Codex instantly."
+    },
+    "terms": {
+      "title": "Terms of Service — whoami",
+      "description": "Terms of Service for whoami, the persistent AI identity profile service."
+    },
+    "privacy": {
+      "title": "Privacy Policy — whoami",
+      "description": "Privacy Policy for whoami. Learn how we collect, use and protect your data."
     }
   },
   "nav": {
@@ -23,8 +31,8 @@
   "hero": {
     "title": "Let every AI",
     "titleHighlight": "know who you are",
-    "subtitle": "One profile. Every AI agent. No more repeating yourself.",
-    "cta": "Start for FREE",
+    "subtitle": "One persistent identity profile. Synced to Claude, Cursor, Codex & every MCP agent. Free forever.",
+    "cta": "Get Started — It's Free",
     "demo": {
       "user1": "Build me a shopping app {'@'}whoami",
       "agent1": "Let me fetch your profile with the whoami skill first.",
@@ -90,6 +98,9 @@
     "subtitle": "Login to manage your identity profile.",
     "github": "Continue with GitHub",
     "google": "Continue with Google",
+    "microsoft": "Continue with Microsoft",
+    "apple": "Continue with Apple",
+    "twitter": "Continue with X",
     "note": "Sign in to start for free",
     "aiContext": {
       "badge": "This is opened by your AI Agent",
@@ -126,6 +137,8 @@
   "footer": {
     "github": "GitHub",
     "docs": "Documentation",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
     "rights": "© {year} whoami. All rights reserved."
   },
   "common": {

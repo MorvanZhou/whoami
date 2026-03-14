@@ -5,10 +5,14 @@ definePageMeta({
 
 const { t } = useI18n()
 const { fetchData } = useRequest()
+const { trackAgentCreated } = useTracking()
+
+const seoTitle = computed(() => t('seo.dashboard.title'))
+const seoDesc = computed(() => t('seo.dashboard.description'))
 
 useSeoMeta({
-  title: () => t('seo.dashboard.title'),
-  description: () => t('seo.dashboard.description'),
+  title: seoTitle,
+  description: seoDesc,
   robots: 'noindex, nofollow',
 })
 
@@ -115,10 +119,12 @@ const createKey = async () => {
   }
   labelError.value = false
   try {
+    const label = newLabel.value.trim()
     const result = await fetchData<{ id: string; store_url: string; expires_in: number }>('/keys', {
       method: 'POST',
-      body: { label: newLabel.value.trim() },
+      body: { label },
     })
+    trackAgentCreated(label)
     showPromptGuide.value = true
     storeUrl.value = result.store_url
     startCountdownAndPolling(result.expires_in, result.id)

@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
-  ssr: true, // 启用SSR以生成完整HTML
+  ssr: true,
 
   css: ['~/assets/css/main.css'],
 
@@ -25,16 +25,21 @@ export default defineNuxtConfig({
     ],
     autoLastmod: true,
     discoverImages: false,
+    xslColumns: [
+      { label: 'URL', width: '65%' },
+      { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
+    ],
   },
 
   i18n: {
     locales: [
-      { code: 'en', file: 'en.json', name: 'English' },
-      { code: 'zh', file: 'zh.json', name: '中文' },
+      { code: 'en', language: 'en-US', file: 'en.json', name: 'English', isCatchallLocale: true },
+      { code: 'zh', language: 'zh-CN', file: 'zh.json', name: '中文' },
     ],
     defaultLocale: 'en',
     langDir: '../locales',
     strategy: 'prefix_except_default',
+    baseUrl: 'https://whoamiagent.com',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
@@ -64,9 +69,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'whoami — Persistent AI Identity Profile | Works with Cursor, Claude & Codex',
-      htmlAttrs: {
-        lang: 'en',
-      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -74,38 +76,19 @@ export default defineNuxtConfig({
         { name: 'msvalidate.01', content: 'A25A16143F8A52E0CC3FD76FE0E5F03B' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
         { name: 'referrer', content: 'no-referrer-when-downgrade' },
-        // Open Graph
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'whoami' },
-        { property: 'og:title', content: 'whoami — Your Persistent Identity for Every AI Agent' },
-        { property: 'og:description', content: 'One profile that every AI agent can read. Works with Cursor, Claude, Codex. Stop repeating yourself.' },
         { property: 'og:image', content: 'https://whoamiagent.com/og-image.png' },
-        { property: 'og:url', content: 'https://whoamiagent.com' },
-        { property: 'og:locale', content: 'en_US' },
-        { property: 'og:locale:alternate', content: 'zh_CN' },
-        // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'whoami — Persistent AI Identity Profile' },
-        { name: 'twitter:description', content: 'Let every AI know who you are. One profile, synced across all your AI agents.' },
         { name: 'twitter:image', content: 'https://whoamiagent.com/og-image.png' },
-        // SEO keywords
-        { name: 'keywords', content: 'AI agent memory, persistent user profile, cross-agent identity, AI identity sync, Cursor memory, Claude context, Codex memory, MCP skill, whoami, AI personalization, cross-platform AI profile' },
+        { name: 'keywords', content: 'whoami, AI agent memory, persistent AI identity, cross-AI user profile, AI identity sync, Cursor AI memory, Claude whoami, Claude context memory, Codex memory, MCP skill, AI personalization, cross-platform AI profile, AI agent skill, AI remembers you' },
       ],
       link: [
-        { rel: 'canonical', href: 'https://whoamiagent.com' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800&display=swap',
-        },
+        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/satoshi-400.woff2', crossorigin: '' },
+        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/space-mono-400.woff2', crossorigin: '' },
       ],
       script: [
         {
@@ -116,16 +99,17 @@ export default defineNuxtConfig({
               {
                 '@type': 'WebSite',
                 'name': 'whoami',
-                'alternateName': 'whoami Agent',
+                'alternateName': ['whoami Agent', 'whoamiagent'],
                 'url': 'https://whoamiagent.com',
                 'description': 'Persistent AI identity profile that syncs across Cursor, Claude, Codex and all MCP-compatible AI agents.',
-                'inLanguage': ['en', 'zh'],
+                'inLanguage': ['en-US', 'zh-CN'],
               },
               {
                 '@type': 'SoftwareApplication',
                 'name': 'whoami',
                 'description': 'whoami gives every AI agent a persistent identity profile about you — synced across Cursor, Claude, Codex and more. One profile, every AI. Stop repeating yourself.',
-                'applicationCategory': 'ProductivityApplication',
+                'applicationCategory': 'DeveloperApplication',
+                'applicationSubCategory': 'AI Developer Tool',
                 'operatingSystem': 'Cross-platform',
                 'url': 'https://whoamiagent.com',
                 'downloadUrl': 'https://www.npmjs.com/package/skills',
@@ -142,6 +126,12 @@ export default defineNuxtConfig({
                   'priceCurrency': 'USD',
                   'availability': 'https://schema.org/InStock',
                 },
+                'aggregateRating': {
+                  '@type': 'AggregateRating',
+                  'ratingValue': '5',
+                  'ratingCount': '1',
+                  'bestRating': '5',
+                },
               },
               {
                 '@type': 'FAQPage',
@@ -156,10 +146,10 @@ export default defineNuxtConfig({
                   },
                   {
                     '@type': 'Question',
-                    'name': 'How does whoami work?',
+                    'name': 'How does Claude whoami work?',
                     'acceptedAnswer': {
                       '@type': 'Answer',
-                      'text': 'whoami works as an MCP-compatible agent skill. Install it via "npx skills add MorvanZhou/whoami", sign in at whoamiagent.com, and your AI agents automatically read and update your identity profile. Your profile is stored in the cloud and synced instantly to every connected agent.',
+                      'text': 'Claude whoami works as an MCP-compatible agent skill. Install it via "npx skills add MorvanZhou/whoami", sign in at whoamiagent.com, and Claude automatically reads and updates your identity profile. Your profile is stored in the cloud and synced instantly to every connected agent including Claude, Cursor, and Codex.',
                     },
                   },
                   {
@@ -167,7 +157,7 @@ export default defineNuxtConfig({
                     'name': 'Which AI tools does whoami support?',
                     'acceptedAnswer': {
                       '@type': 'Answer',
-                      'text': 'whoami supports all MCP-compatible AI agents, including Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, and any tool that supports the MCP agent skill protocol.',
+                      'text': 'whoami supports all MCP-compatible AI agents, including Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, OpenClaw, and any tool that supports the MCP agent skill protocol.',
                     },
                   },
                   {
@@ -184,6 +174,14 @@ export default defineNuxtConfig({
                     'acceptedAnswer': {
                       '@type': 'Answer',
                       'text': 'Getting started takes seconds: paste the install prompt to any AI agent, or run "npx skills add MorvanZhou/whoami" in your terminal. Then sign in at whoamiagent.com/login to create your identity profile.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    'name': 'How to make AI remember who I am?',
+                    'acceptedAnswer': {
+                      '@type': 'Answer',
+                      'text': 'Use whoami to create a persistent identity profile. Install whoami as an agent skill, write your profile once, and every AI agent — Cursor, Claude, Codex — reads the same context about you. No more repeating yourself in new sessions.',
                     },
                   },
                 ],

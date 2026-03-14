@@ -27,6 +27,23 @@ class Settings(BaseSettings):
     google_client_secret: str = ""
     google_redirect_uri: str = "https://whoamiagent.com/api/auth/google/callback"
 
+    # Microsoft OAuth
+    microsoft_client_id: str = ""
+    microsoft_client_secret: str = ""
+    microsoft_redirect_uri: str = "https://whoamiagent.com/api/auth/microsoft/callback"
+
+    # Apple OAuth
+    apple_client_id: str = ""
+    apple_team_id: str = ""
+    apple_key_id: str = ""
+    apple_private_key: str = ""
+    apple_redirect_uri: str = "https://whoamiagent.com/api/auth/apple/callback"
+
+    # Twitter OAuth 2.0
+    twitter_client_id: str = ""
+    twitter_client_secret: str = ""
+    twitter_redirect_uri: str = "https://whoamiagent.com/api/auth/twitter/callback"
+
     # Tencent Cloud COS
     cos_secret_id: str = ""
     cos_secret_key: str = ""

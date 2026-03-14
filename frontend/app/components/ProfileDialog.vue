@@ -11,6 +11,7 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 const { fetchData } = useRequest()
+const { trackProfileSaved } = useTracking()
 
 const profileContent = ref('')
 const originalContent = ref('')
@@ -55,6 +56,7 @@ const saveProfile = async () => {
       body: { content: profileContent.value },
     })
     originalContent.value = profileContent.value
+    trackProfileSaved()
     saveMessage.value = t('profile.saveSuccess')
     isEditing.value = false
     setTimeout(() => { saveMessage.value = '' }, 3000)

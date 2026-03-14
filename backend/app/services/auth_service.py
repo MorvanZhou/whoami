@@ -33,13 +33,13 @@ async def find_or_create_user(
     name: str | None = None,
     avatar_url: str | None = None,
 ) -> User:
+    # 1. Exact match on (provider, provider_id)
     result = await db.execute(
         select(User).where(User.provider == provider, User.provider_id == provider_id)
     )
     user = result.scalar_one_or_none()
 
     if user:
-        # Update user info on each login
         if email:
             user.email = email
         if name:
@@ -51,6 +51,24 @@ async def find_or_create_user(
         logger.info(f"[whoami] Existing user logged in: {user.id} via {provider}")
         return user
 
+    # 2. Same email from a different provider — link to existing account
+    if email:
+        result = await db.execute(select(User).where(User.email == email))
+        user = result.scalar_one_or_none()
+        if user:
+            if name and not user.name:
+                user.name = name
+            if avatar_url and not user.avatar_url:
+                user.avatar_url = avatar_url
+            await db.commit()
+            await db.refresh(user)
+            logger.info(
+                f"[whoami] User {user.id} logged in via {provider} "
+                f"(linked by email, original provider: {user.provider})"
+            )
+            return user
+
+    # 3. Brand-new user
     user = User(
         provider=provider,
         provider_id=str(provider_id),

@@ -7,9 +7,11 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
+const { trackCopyPrompt } = useTracking()
 const copied = ref(false)
 
 const copy = async () => {
+  trackCopyPrompt(props.label || 'unknown')
   try {
     await navigator.clipboard.writeText(props.text)
     copied.value = true

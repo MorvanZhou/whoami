@@ -2,7 +2,7 @@
 const { t, locale } = useI18n()
 
 const introImage = computed(() =>
-  locale.value === 'zh' ? '/intro-zh.png' : '/intro-en.png'
+  locale.value === 'zh' ? '/intro-zh.png' : '/intro-en.jpg'
 )
 </script>
 

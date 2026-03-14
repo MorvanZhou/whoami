@@ -1,13 +1,16 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+const title = computed(() => t('seo.home.title'))
+const description = computed(() => t('seo.home.description'))
+
 useSeoMeta({
-  title: () => t('seo.home.title'),
-  description: () => t('seo.home.description'),
-  ogTitle: () => t('seo.home.title'),
-  ogDescription: () => t('seo.home.description'),
-  twitterTitle: () => t('seo.home.title'),
-  twitterDescription: () => t('seo.home.description'),
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  twitterTitle: title,
+  twitterDescription: description,
 })
 </script>
 

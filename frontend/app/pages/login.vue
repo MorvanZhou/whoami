@@ -4,11 +4,15 @@ const localePath = useLocalePath()
 const route = useRoute()
 const { isLoggedIn, fetchUser } = useAuth()
 
+const seoTitle = computed(() => t('seo.login.title'))
+const seoDesc = computed(() => t('seo.login.description'))
+
 useSeoMeta({
-  title: () => t('seo.login.title'),
-  description: () => t('seo.login.description'),
-  ogTitle: () => t('seo.login.title'),
-  ogDescription: () => t('seo.login.description'),
+  title: seoTitle,
+  description: seoDesc,
+  ogTitle: seoTitle,
+  ogDescription: seoDesc,
+  robots: 'noindex, nofollow',
 })
 
 const rawRedirect = computed(() => (route.query.redirect as string) || '')

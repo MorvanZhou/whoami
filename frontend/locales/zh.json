@@ -1,16 +1,24 @@
 {
   "seo": {
     "home": {
-      "title": "whoami — 跨 AI 身份档案同步 | 支持 Cursor、Claude、Codex",
-      "description": "whoami 让每个 AI 都认识你。一份身份档案，自动同步到 Cursor、Claude、Codex 等所有 AI 工具。不再重复自我介绍。"
+      "title": "whoami — 让 Claude、Cursor、Codex 都认识你 | 免费 AI 身份记忆工具",
+      "description": "whoami 让每个 AI 都记住你是谁。一份持久身份档案，自动同步到 Claude、Cursor、Codex、Windsurf 等所有 MCP 兼容工具。免费开源。"
     },
     "login": {
-      "title": "登录 — whoami | 免费获取 AI 身份档案",
-      "description": "登录 whoami。创建一份跨 Cursor、Claude、Codex 等所有 AI 工具同步的身份档案。"
+      "title": "登录 — whoami | 免费创建 AI 身份档案",
+      "description": "登录 whoami，创建跨 Claude、Cursor、Codex 等所有 AI 工具同步的持久身份档案。完全免费。"
     },
     "dashboard": {
       "title": "控制台 — whoami | 管理 AI 身份档案与 Agents",
-      "description": "管理你的 AI 身份档案和 Agents。编辑档案、创建密钥，让所有 AI 都能读取同一个你。"
+      "description": "管理你的 AI 身份档案和已连接的 Agents。编辑档案、创建密钥，即时同步到 Claude、Cursor、Codex。"
+    },
+    "terms": {
+      "title": "服务条款 — whoami",
+      "description": "whoami 持久 AI 身份档案服务的服务条款。"
+    },
+    "privacy": {
+      "title": "隐私政策 — whoami",
+      "description": "whoami 的隐私政策。了解我们如何收集、使用和保护您的数据。"
     }
   },
   "nav": {
@@ -23,8 +31,8 @@
   "hero": {
     "title": "让每个 AI",
     "titleHighlight": "都认识你",
-    "subtitle": "一份档案，所有 AI 都能读取。不再重复自我介绍。",
-    "cta": "马上开始体验",
+    "subtitle": "一份持久身份档案，同步到 Claude、Cursor、Codex 等所有 MCP Agent。永久免费。",
+    "cta": "免费开始使用",
     "demo": {
       "user1": "帮我做一个购物 App {'@'}whoami",
       "agent1": "好的，让我先用 whoami 获取你的档案。",
@@ -90,6 +98,9 @@
     "subtitle": "登录以管理你的身份档案。",
     "github": "使用 GitHub 登录",
     "google": "使用 Google 登录",
+    "microsoft": "使用 Microsoft 登录",
+    "apple": "使用 Apple 登录",
+    "twitter": "使用 X 登录",
     "note": "登录后即可免费体验",
     "aiContext": {
       "badge": "此页面由你的 AI Agent 打开",
@@ -126,6 +137,8 @@
   "footer": {
     "github": "GitHub",
     "docs": "文档",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
     "rights": "© {year} whoami. 保留所有权利。"
   },
   "common": {

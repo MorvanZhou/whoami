@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { trackCtaClick } = useTracking()
 </script>
 
 <template>
@@ -54,6 +55,7 @@ const localePath = useLocalePath()
             <NuxtLink
               :to="`${localePath('/login')}`"
               class="relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white overflow-hidden group"
+              @click="trackCtaClick('hero')"
             >
               <span class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light" />
               <span class="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
