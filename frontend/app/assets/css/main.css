@@ -52,14 +52,64 @@
     scroll-behavior: smooth;
   }
 
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior: none;
   }
 
+  /* Accessible focus styles */
+  :focus-visible {
+    outline: 2px solid rgb(14 165 233 / 0.7);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Remove default focus ring for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
   a, button {
     touch-action: manipulation;
+    cursor: pointer;
+  }
+
+  /* Ensure all buttons have cursor pointer */
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Skip link for keyboard navigation */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 9999;
+    padding: 8px 16px;
+    background: rgb(14 165 233);
+    color: white;
+    border-radius: 0 0 8px 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 0;
   }
 
   @supports (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px)) {

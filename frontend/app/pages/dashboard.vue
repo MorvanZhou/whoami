@@ -304,7 +304,7 @@ const promptText = computed(() => {
                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-th-text-m tabular-nums pointer-events-none">{{ newLabel.length }}/15</span>
               </div>
               <button
-                class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light transition-colors"
+                class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light active:scale-[0.97] transition-all duration-200"
                 @click="createKey"
               >
                 {{ t('dashboard.addAgent') }}

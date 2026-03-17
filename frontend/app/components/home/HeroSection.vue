@@ -5,9 +5,9 @@ const { trackCtaClick } = useTracking()
 </script>
 
 <template>
-  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden" aria-label="Hero">
     <!-- Animated background grid -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-0" aria-hidden="true">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(14,165,233,0.08)_0%,_transparent_70%)]" />
       <svg class="absolute inset-0 w-full h-full opacity-[0.03] text-th-text" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -34,8 +34,8 @@ const { trackCtaClick } = useTracking()
         <!-- Right: Text content -->
         <div class="w-full lg:w-[52%] order-1 lg:order-2 text-center lg:text-left">
           <!-- Terminal badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in-up">
-            <span class="w-2 h-2 rounded-full bg-success animate-pulse" />
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in-up" role="status">
+            <span class="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
             <span class="text-xs font-mono text-gray-400">OpenClaw · Cursor · Claude Code · Codex · Windsurf · Cline</span>
           </div>
 
@@ -47,14 +47,14 @@ const { trackCtaClick } = useTracking()
             </span>
           </h1>
 
-          <p class="hero-subtitle text-lg sm:text-xl text-th-text-s max-w-xl mx-auto lg:mx-0 mb-10 animate-fade-in-up" style="animation-delay: 0.2s">
+          <p class="hero-subtitle text-lg sm:text-xl text-th-text-s max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
             {{ t('hero.subtitle') }}
           </p>
 
           <div class="animate-fade-in-up" style="animation-delay: 0.3s">
             <NuxtLink
               :to="`${localePath('/login')}`"
-              class="relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white overflow-hidden group"
+              class="relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white overflow-hidden group active:scale-[0.97] transition-transform duration-150"
               @click="trackCtaClick('hero')"
             >
               <span class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light" />
@@ -62,7 +62,7 @@ const { trackCtaClick } = useTracking()
               <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.15)_0%,_transparent_70%)]" />
               <span class="relative flex items-center gap-2">
                 {{ t('hero.cta') }}
-                <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>

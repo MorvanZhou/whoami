@@ -7,7 +7,7 @@ const introImage = computed(() =>
 </script>
 
 <template>
-  <section class="py-24 px-6">
+  <section class="py-24 px-6" aria-label="Installation guide">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl sm:text-4xl font-bold text-center text-th-text mb-16">
         {{ t('install.title') }}

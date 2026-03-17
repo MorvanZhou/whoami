@@ -37,10 +37,11 @@ const copy = async () => {
       <span class="text-xs font-medium text-th-text-t uppercase tracking-wider">{{ label }}</span>
       <button
         v-if="prominent"
-        class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-semibold transition-all duration-200"
+        class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-semibold active:scale-[0.95] transition-all duration-200"
         :class="copied
           ? 'bg-success/20 text-success border border-success/30'
           : 'bg-accent/10 text-accent hover:bg-accent/20 border border-accent/30 hover:border-accent/50'"
+        :aria-label="copied ? t('common.copied') : t('common.copy')"
         @click="copy"
       >
         <svg v-if="!copied" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,10 +61,11 @@ const copy = async () => {
       <!-- Default: inline button beside text -->
       <button
         v-if="!prominent"
-        class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200"
+        class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium active:scale-[0.95] transition-all duration-200"
         :class="copied
           ? 'bg-success/20 text-success border border-success/30'
           : 'bg-th-bg-t text-th-text-t hover:text-th-text hover:bg-th-bg-e border border-th-text/[0.08]'"
+        :aria-label="copied ? t('common.copied') : t('common.copy')"
         @click="copy"
       >
         <svg v-if="!copied" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

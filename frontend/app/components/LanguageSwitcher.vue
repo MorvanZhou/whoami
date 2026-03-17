@@ -11,6 +11,7 @@ const toggleLocale = () => {
 <template>
   <button
     class="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-mono font-medium text-th-text-s hover:text-th-text hover:bg-th-bg-t border border-th-text/[0.08] transition-all duration-200"
+    :aria-label="locale === 'en' ? 'Switch to Chinese' : '切换为英文'"
     @click="toggleLocale"
   >
     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

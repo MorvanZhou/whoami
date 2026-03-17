@@ -27,12 +27,12 @@ const cases = computed(() => [
 </script>
 
 <template>
-  <section class="py-24 px-6">
+  <section class="py-24 px-6" aria-label="Common problems">
     <div class="max-w-5xl mx-auto">
       <h2 class="features-title text-3xl sm:text-4xl font-bold text-center text-th-text mb-4">
         {{ t('features.title') }}
       </h2>
-      <p class="text-center text-th-text-s mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-th-text-s mb-16 max-w-2xl mx-auto leading-relaxed">
         {{ t('features.subtitle') }}
       </p>
 
@@ -40,7 +40,7 @@ const cases = computed(() => [
         <div
           v-for="(c, i) in cases"
           :key="i"
-          class="group relative rounded-2xl bg-th-bg-s/50 border border-th-text/[0.05] hover:border-th-text/[0.15] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+          class="group relative rounded-2xl bg-th-bg-s/50 border border-th-text/[0.05] hover:border-th-text/[0.12] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-accent/5 overflow-hidden"
         >
           <!-- SVG Animation Area -->
           <div class="relative h-48 flex items-center justify-center overflow-hidden bg-th-bg-t/30">

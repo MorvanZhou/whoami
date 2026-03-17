@@ -40,12 +40,12 @@ const solutions = computed(() => [
 </script>
 
 <template>
-  <section ref="container" class="py-24 px-6">
+  <section ref="container" class="py-24 px-6" aria-label="Solutions">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl sm:text-4xl font-bold text-center text-th-text mb-4">
         {{ t('solutions.title') }}
       </h2>
-      <p class="text-center text-th-text-s mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-th-text-s mb-16 max-w-2xl mx-auto leading-relaxed">
         {{ t('solutions.subtitle') }}
       </p>
 
@@ -53,7 +53,7 @@ const solutions = computed(() => [
         <div
           v-for="(s, i) in solutions"
           :key="i"
-          class="group relative rounded-2xl bg-th-bg-s/50 border border-th-text/[0.05] hover:border-th-text/[0.15] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+          class="group relative rounded-2xl bg-th-bg-s/50 border border-th-text/[0.05] hover:border-th-text/[0.12] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-accent/5 overflow-hidden"
           :class="visible ? 'animate-fade-in-up opacity-100' : 'opacity-0'"
           :style="{ animationDelay: `${i * 0.15}s` }"
         >

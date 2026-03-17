@@ -34,8 +34,10 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
 <template>
   <div ref="wrapper" class="relative">
     <button
-      class="flex items-center justify-center w-8 h-8 rounded-lg text-th-text-s hover:text-th-text hover:bg-th-bg-t transition-colors"
+      class="flex items-center justify-center w-8 h-8 rounded-lg text-th-text-s hover:text-th-text hover:bg-th-bg-t transition-colors duration-200"
       :title="t('theme.title')"
+      :aria-label="t('theme.title')"
+      :aria-expanded="showMenu"
       @click="showMenu = !showMenu"
     >
       <!-- Sun -->

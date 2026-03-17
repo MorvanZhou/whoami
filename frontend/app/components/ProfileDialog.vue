@@ -128,6 +128,9 @@ watch(() => props.open, (val) => {
         >
           <div
             v-if="open"
+            role="dialog"
+            aria-modal="true"
+            :aria-label="t('profile.title')"
             class="w-full max-w-2xl max-h-[85vh] rounded-2xl bg-th-card border border-th-text/[0.08] shadow-2xl flex flex-col overflow-hidden"
           >
             <!-- Header -->
@@ -223,16 +226,16 @@ watch(() => props.open, (val) => {
             <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-th-text/[var(--color-card-border-opacity)] bg-th-bg/30">
               <template v-if="!isEditing">
                 <button
-                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
+                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t active:scale-[0.97] transition-all duration-200"
                   @click="handleClose"
                 >
                   {{ t('profile.close') }}
                 </button>
                 <button
-                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light transition-colors"
+                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light active:scale-[0.97] transition-all duration-200"
                   @click="startEditing"
                 >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
                   {{ t('profile.edit') }}
@@ -240,18 +243,18 @@ watch(() => props.open, (val) => {
               </template>
               <template v-else>
                 <button
-                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t transition-colors"
+                  class="px-4 py-2 rounded-lg text-sm font-medium text-th-text-t hover:text-th-text-s hover:bg-th-bg-t active:scale-[0.97] transition-all duration-200"
                   @click="cancelEditing"
                 >
                   {{ t('common.cancel') }}
                 </button>
                 <button
                   :disabled="!hasChanges || isOverLimit || saving"
-                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold text-white bg-accent hover:bg-accent-light active:scale-[0.97] transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:active:scale-100"
                   @click="saveProfile"
                 >
                   <div v-if="saving" class="w-4 h-4 border-2 border-white/60 border-t-transparent rounded-full animate-spin" />
-                  <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   {{ t('profile.save') }}
