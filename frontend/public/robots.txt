@@ -4,8 +4,6 @@ User-agent: *
 Allow: /
 Disallow: /dashboard
 Disallow: /zh/dashboard
-Disallow: /login
-Disallow: /zh/login
 Disallow: /auth/
 Disallow: /zh/auth/
 Disallow: /api/
