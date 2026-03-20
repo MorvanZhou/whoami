@@ -81,7 +81,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: 'https://whoamiagent.com/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image', content: 'https://whoamiagent.com/og-image.png' },
-        { name: 'keywords', content: 'whoami, AI agent memory, persistent AI identity, cross-AI user profile, AI identity sync, Cursor AI memory, Claude whoami, Claude context memory, Codex memory, MCP skill, AI personalization, cross-platform AI profile, AI agent skill, AI remembers you' },
+        { name: 'keywords', content: 'whoami, AI agent memory, persistent AI identity, cross-AI user profile, AI identity sync, Cursor AI memory, Claude whoami, Claude context memory, Codex memory, skill, AI personalization, cross-platform AI profile, AI agent skill, AI remembers you' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
                 'name': 'whoami',
                 'alternateName': ['whoami Agent', 'whoamiagent'],
                 'url': 'https://whoamiagent.com',
-                'description': 'Persistent AI identity profile that syncs across Cursor, Claude, Codex and all MCP-compatible AI agents.',
+                'description': 'Persistent AI identity profile that syncs across Cursor, Claude, Codex and all AI agents.',
                 'inLanguage': ['en-US', 'zh-CN'],
               },
               {
@@ -117,7 +117,7 @@ export default defineNuxtConfig({
                   'Cross-AI identity sync across Cursor, Claude, Codex, Windsurf, Cline and more',
                   'Persistent user profile that survives new chat sessions',
                   'User-controlled identity editing from dashboard or via AI commands',
-                  'MCP-compatible agent skill architecture',
+                  'agent skill architecture',
                   'Free to use with cloud-synced storage',
                 ],
                 'offers': {
@@ -149,7 +149,7 @@ export default defineNuxtConfig({
                     'name': 'How does Claude whoami work?',
                     'acceptedAnswer': {
                       '@type': 'Answer',
-                      'text': 'Claude whoami works as an MCP-compatible agent skill. Install it via "npx skills add MorvanZhou/whoami", sign in at whoamiagent.com, and Claude automatically reads and updates your identity profile. Your profile is stored in the cloud and synced instantly to every connected agent including Claude, Cursor, and Codex.',
+                      'text': 'Claude whoami works as an AI agent skill. Install it via "npx skills add MorvanZhou/whoami", sign in at whoamiagent.com, and Claude automatically reads and updates your identity profile. Your profile is stored in the cloud and synced instantly to every connected agent including Claude, Cursor, and Codex.',
                     },
                   },
                   {
@@ -157,7 +157,7 @@ export default defineNuxtConfig({
                     'name': 'Which AI tools does whoami support?',
                     'acceptedAnswer': {
                       '@type': 'Answer',
-                      'text': 'whoami supports all MCP-compatible AI agents, including Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, OpenClaw, and any tool that supports the MCP agent skill protocol.',
+                      'text': 'whoami supports all AI agents, including Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, OpenClaw, and any tool that supports the AI agent skill protocol.',
                     },
                   },
                   {

@@ -76,8 +76,8 @@ whoami 可以和任何支持 skill 安装的 AI 助手配合使用，包括：
 
 - Cursor
 - Windsurf
-- Claude（通过 MCP 或 skills）
-- Codex（通过自定义指令）
+- Claude
+- Codex
 - 更多...
 
 ## 开源协议

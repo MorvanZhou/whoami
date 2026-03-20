@@ -76,8 +76,8 @@ whoami works with any AI agent that supports skill installation, including:
 
 - Cursor
 - Windsurf
-- Claude (via MCP or skills)
-- Codex (via custom instructions)
+- Claude
+- Codex
 - And more...
 
 ## License

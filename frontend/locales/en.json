@@ -2,11 +2,11 @@
   "seo": {
     "home": {
       "title": "whoami — Persistent AI Identity for Claude, Cursor & Codex | Free AI Agent Memory",
-      "description": "Make every AI remember who you are. whoami syncs your identity across Claude, Cursor, Codex, Windsurf & all MCP agents. One profile, every AI. Free & open source."
+      "description": "Make every AI remember who you are. whoami syncs your identity across Claude, Cursor, Codex, Windsurf & all AI agents. One profile, every AI. Free & open source."
     },
     "login": {
       "title": "Sign in — whoami | Create Your Free AI Identity Profile",
-      "description": "Sign in to whoami and create a persistent AI identity profile. Works with Claude, Cursor, Codex and every MCP-compatible AI agent. Free to use."
+      "description": "Sign in to whoami and create a persistent AI identity profile. Works with Claude, Cursor, Codex and every AI agent. Free to use."
     },
     "dashboard": {
       "title": "Dashboard — whoami | Manage Your AI Identity Profile & Agents",
@@ -31,7 +31,7 @@
   "hero": {
     "title": "Let every AI",
     "titleHighlight": "know who you are",
-    "subtitle": "One persistent identity profile. Synced to Claude, Cursor, Codex & every MCP agent. Free forever.",
+    "subtitle": "One persistent identity profile. Synced to Claude, Cursor, Codex & every AI agent. Free forever.",
     "cta": "Get Started — It's Free",
     "demo": {
       "user1": "Build me a shopping app {'@'}whoami",

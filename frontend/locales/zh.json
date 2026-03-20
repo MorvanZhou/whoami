@@ -2,7 +2,7 @@
   "seo": {
     "home": {
       "title": "whoami — 让 Claude、Cursor、Codex 都认识你 | 免费 AI 身份记忆工具",
-      "description": "whoami 让每个 AI 都记住你是谁。一份持久身份档案，自动同步到 Claude、Cursor、Codex、Windsurf 等所有 MCP 兼容工具。免费开源。"
+      "description": "whoami 让每个 AI 都记住你是谁。一份持久身份档案，自动同步到 Claude、Cursor、Codex、Windsurf 等所有 AI Agent。免费开源。"
     },
     "login": {
       "title": "登录 — whoami | 免费创建 AI 身份档案",
@@ -31,7 +31,7 @@
   "hero": {
     "title": "让每个 AI",
     "titleHighlight": "都认识你",
-    "subtitle": "一份持久身份档案，同步到 Claude、Cursor、Codex 等所有 MCP Agent。永久免费。",
+    "subtitle": "一份持久身份档案，同步到 Claude、Cursor、Codex 等所有 AI Agent。永久免费。",
     "cta": "免费开始使用",
     "demo": {
       "user1": "帮我做一个购物 App {'@'}whoami",
