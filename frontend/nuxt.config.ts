@@ -89,6 +89,7 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/satoshi-400.woff2', crossorigin: '' },
         { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/space-mono-400.woff2', crossorigin: '' },
+        { rel: 'author', type: 'text/plain', href: '/llms.txt' },
       ],
       script: [
         {

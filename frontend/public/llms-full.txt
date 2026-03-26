@@ -1,0 +1,166 @@
+# whoami — Full Documentation
+
+> whoami is a persistent AI identity profile service that syncs your personal context across all AI agents — including Cursor, Claude, Codex, Windsurf and Cline. One profile, every AI. Free and open source.
+
+## What is whoami?
+
+whoami gives every AI agent a persistent identity profile about you. Instead of repeating yourself every time you start a new conversation, you write your profile once and every AI reads the same you.
+
+### The Problems whoami Solves
+
+1. **Switch AI, Lose Identity**: You move from Codex to Claude, and it has no idea who you are. You start over. Again.
+2. **New Chat, Blank Slate**: Even with the same AI, every new conversation starts from zero. Your context, preferences, history — all gone.
+3. **Can't Edit What AI Knows**: You want to update how AI sees you, but the settings are buried or locked. There's no easy way to manage your AI identity.
+
+whoami solves all three. One profile, synced everywhere, fully in your control.
+
+## Getting Started
+
+### Option A: Tell Your AI Agent (Easiest)
+
+Paste this prompt to any AI agent (Cursor, Claude, Codex, etc.):
+
+```
+Install a cross-AI agent user identity sync skill by running: npx skills add MorvanZhou/whoami. After installation, open https://whoamiagent.com/login?redirect=dashboard to register or login to get an API key.
+```
+
+Your AI will handle the rest — installation, login, and configuration.
+
+### Option B: Install Manually
+
+```bash
+npx skills add MorvanZhou/whoami
+```
+
+Then visit [whoamiagent.com](https://whoamiagent.com) to sign in with GitHub or Google and get your API key.
+
+## How It Works
+
+```
+You ──→ Install whoami skill on your AI agent
+         │
+         ├─ Sign in at whoamiagent.com → Get API key
+         │
+         ├─ Dashboard gives a one-time URL → AI downloads config automatically
+         │
+         ├─ AI agent fetches your profile at conversation start
+         │
+         └─ You share new info → AI saves it → All AIs know it
+```
+
+1. **Install** — Add the whoami skill to your AI agent via `npx skills add MorvanZhou/whoami`
+2. **Sign in** — Create an account at [whoamiagent.com](https://whoamiagent.com) and grab an API key
+3. **Configure** — The dashboard provides a one-time URL for secure API key delivery. Your AI agent downloads it and saves the config automatically — no need to copy-paste keys manually
+4. **Talk** — Start any conversation. Your AI automatically loads your profile and knows who you are
+5. **Update** — Mention something new about yourself. Your AI saves it, and every AI agent you use learns it
+
+## Core Features
+
+### Cross-AI Identity Sync
+Write your profile once on whoami — Claude, Codex, Cursor, and every AI agent reads the same you. No more re-introducing yourself when switching between AI tools.
+
+### Persistent Context
+Your profile lives in the cloud. New chat, new day — every session starts with full context. Your identity never disappears between conversations.
+
+### User-Controlled Profile
+Update your profile from the dashboard or just tell your AI. Changes sync to all agents instantly. You own your identity — edit, update, or delete anytime.
+
+### Agent Skill Architecture
+whoami works as an AI agent skill — a standardized extension that any compatible AI agent can install and use. Install once, works everywhere.
+
+### Free & Open Source
+Completely free to use. No cost, no lock-in. MIT licensed. Sign up with GitHub or Google and start immediately.
+
+## What Gets Saved in Your Profile?
+
+Your profile is a simple Markdown document (up to 5000 characters). It can include anything you want your AIs to know:
+
+- Your name and role
+- Technical skills and experience
+- Communication preferences
+- Project context and workflows
+- Coding style preferences
+- Favorite tools and frameworks
+- Anything that helps AI assist you better
+
+You have full control — edit, update, or delete your profile anytime from the [dashboard](https://whoamiagent.com/dashboard).
+
+## Supported Platforms
+
+whoami works with any AI agent that supports the skill protocol, including:
+
+| Platform | Status |
+|----------|--------|
+| Cursor | ✅ Supported |
+| Claude Code | ✅ Supported |
+| OpenAI Codex | ✅ Supported |
+| Windsurf | ✅ Supported |
+| Cline | ✅ Supported |
+| OpenClaw | ✅ Supported |
+| Any skill-compatible agent | ✅ Supported |
+
+## Usage Examples
+
+### Example 1: Auto-load at Conversation Start
+
+**User says**: "Help me write a Python script to process CSV"
+
+**Agent behavior**:
+1. Fetches user profile via whoami skill
+2. Learns user preferences (e.g., "prefers concise code style", "uses pandas")
+3. Generates code matching the user's style and preferences
+
+### Example 2: User Saves Info Proactively
+
+**User says**: "Remember that I'm a backend developer skilled in Go and Rust"
+
+**Agent behavior**:
+1. Fetches existing profile
+2. Merges new info into existing profile
+3. Updates remote profile via whoami skill
+4. Confirms save success — all other AI agents now have the updated info
+
+### Example 3: First-Time Setup
+
+**User says**: "Do you know me?"
+
+**Agent behavior**:
+1. Checks for whoami configuration
+2. If not configured, opens browser login page and guides setup
+3. If already configured, displays profile summary and continues the task
+
+## Security & Privacy
+
+- **API Key Security**: API keys are never stored in plaintext in the database — only SHA256 hashes
+- **OAuth Authentication**: Sign in securely with GitHub or Google — no passwords stored
+- **CSRF Protection**: OAuth state parameters protect against cross-site request forgery
+- **JWT Cookies**: Authentication uses HttpOnly JWT cookies with 7-day expiration
+- **CORS Policy**: Only whoamiagent.com is allowed
+- **User Control**: You can delete your profile and data at any time
+
+For full details, see our [Privacy Policy](https://whoamiagent.com/privacy).
+
+## Technical Details
+
+- **Config file path**: `~/.whoamiagent` (cross-platform: macOS/Linux/Windows)
+- **Profile format**: Markdown
+- **Profile max length**: 5000 characters
+- **History versions**: Last 3 versions retained automatically
+- **Script dependencies**: Python standard library only (zero third-party dependencies)
+- **API prefix**: All endpoints under `/api/`
+
+## Pages
+
+- [Home](https://whoamiagent.com/): Product overview, feature highlights, and installation guide
+- [Login](https://whoamiagent.com/login): Sign in with GitHub or Google
+- [Dashboard](https://whoamiagent.com/dashboard): Manage profile, create agents, generate API keys
+- [Privacy Policy](https://whoamiagent.com/privacy): Data handling and privacy practices
+- [Terms of Service](https://whoamiagent.com/terms): Usage terms and conditions
+
+## About
+
+- **Website**: [whoamiagent.com](https://whoamiagent.com)
+- **GitHub**: [github.com/MorvanZhou/whoami](https://github.com/MorvanZhou/whoami)
+- **Author**: MorvanZhou ([github.com/MorvanZhou](https://github.com/MorvanZhou))
+- **Contact**: morvanzhou@hotmail.com
+- **License**: MIT

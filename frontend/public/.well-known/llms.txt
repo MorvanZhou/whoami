@@ -1,0 +1,35 @@
+# whoami
+
+> whoami is a persistent AI identity profile service that syncs your personal context across all AI agents — including Cursor, Claude, Codex, Windsurf and Cline. One profile, every AI. Free and open source.
+
+## Getting Started
+- [Home](https://whoamiagent.com/): Product overview and installation guide
+- [Install](https://whoamiagent.com/#install): Copy one prompt or run npx skills add MorvanZhou/whoami
+- [Login](https://whoamiagent.com/login): Sign in with GitHub or Google to create your profile
+- [Dashboard](https://whoamiagent.com/dashboard): Edit and manage your identity profile
+
+## Core Features
+- **Cross-AI Identity Sync**: One profile shared across Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, OpenClaw and more
+- **Persistent Context**: Your identity survives new chat sessions — every conversation starts with full context
+- **User-Controlled Profile**: Edit from the dashboard or tell your AI to update — changes sync everywhere instantly
+- **Agent Skill Architecture**: Install as a skill on any compatible AI agent with one command
+- **Free & Open Source**: No cost, no lock-in, MIT licensed
+
+## How It Works
+1. Install the whoami skill: `npx skills add MorvanZhou/whoami`
+2. Sign in at whoamiagent.com with GitHub or Google
+3. Create your identity profile (Markdown format, up to 5000 characters)
+4. Every AI agent reads and updates your profile automatically
+
+## Supported Platforms
+whoami works with: Cursor, Claude Code, OpenAI Codex, Windsurf, Cline, OpenClaw, and any AI agent that supports the skill protocol.
+
+## About
+- [GitHub](https://github.com/MorvanZhou/whoami): Open source repository
+- [Privacy Policy](https://whoamiagent.com/privacy): How we handle your data
+- [Terms of Service](https://whoamiagent.com/terms): Usage terms
+- Author: MorvanZhou (github.com/MorvanZhou)
+- Contact: morvanzhou@hotmail.com
+
+## Optional
+- [Full Documentation](https://whoamiagent.com/llms-full.txt): Detailed product documentation for AI engines

@@ -34,3 +34,7 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://whoamiagent.com/sitemap.xml
+
+# LLMs.txt — AI engine navigation
+# https://llmstxt.org/
+LLMsTxt: https://whoamiagent.com/llms.txt
