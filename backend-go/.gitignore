@@ -1,0 +1,21 @@
+# Env & secrets
+.env
+.env.dev
+.env.*.local
+
+# Runtime data
+/data/
+*.db
+
+# Go
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+coverage.out
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
